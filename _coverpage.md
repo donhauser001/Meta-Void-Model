@@ -1,3 +1,5 @@
+[![English](https://img.shields.io/badge/English-Version-blue)](_coverpage.en.md)
+
 ![logo](assets/diagrams/banner-v2.jpg)
 
 # Meta-Void-Model

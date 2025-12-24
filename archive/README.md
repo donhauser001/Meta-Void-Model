@@ -1,5 +1,7 @@
 # 📁 Archive | 原始文稿存档
 
+[![English](https://img.shields.io/badge/English-Version-blue)](README.en.md)
+
 > **本文件夹保存了 MVM 理论的原始完整文稿，作为模块化拆分前的"最终权威源"。**
 
 ---

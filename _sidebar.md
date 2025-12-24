@@ -1,4 +1,6 @@
-<!-- docs/_sidebar.md -->
+<!-- _sidebar.md -->
+
+[![English](https://img.shields.io/badge/English-Version-blue)](_sidebar.en.md)
 
 * **入门**
   * [首页](/)
