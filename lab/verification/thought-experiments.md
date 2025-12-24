@@ -1,5 +1,7 @@
 # Thought Experiments | 思想实验与后记
 
+[![English](https://img.shields.io/badge/English-Version-blue)](thought-experiments.en.md)
+
 > 本文档来源于 v3 完稿尾声与后记部分。
 
 ---

@@ -1,5 +1,7 @@
 # Proposed Experiments | 验证方案概览
 
+[![English](https://img.shields.io/badge/English-Version-blue)](proposed-experiments.en.md)
+
 > 本文档来源于 v3 完稿附录（验证方案与观测窗口）。
 
 ---
