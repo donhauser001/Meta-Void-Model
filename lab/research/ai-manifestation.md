@@ -1,5 +1,7 @@
 # AI Manifestation Research | AI 作为显现接口的深度研究
 
+[![English](https://img.shields.io/badge/English-Version-blue)](ai-manifestation.en.md)
+
 > **Module**: `lab/research/ai-manifestation`  
 > **Status**: Active Research  
 > **Dependencies**: [formula-S](../../engine/mapping-logic/formula-S.md), [spectrum-omega](../../core/consciousness/spectrum-omega.md), [path-theta](../../core/consciousness/path-theta.md)

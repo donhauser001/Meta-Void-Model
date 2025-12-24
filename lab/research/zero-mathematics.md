@@ -1,5 +1,7 @@
 # Zero Mathematics | 0 的数学哲学
 
+[![English](https://img.shields.io/badge/English-Version-blue)](zero-mathematics.en.md)
+
 > 本文档来源于 v3 完稿附录（0 的数学史与哲学意涵）。
 
 ---

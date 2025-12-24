@@ -1,5 +1,7 @@
 # Quantum Resonance | Quantum-Buddhist Alignment Research
 
+[![中文](https://img.shields.io/badge/中文-版本-blue)](quantum-resonance.md)
+
 > **Module**: `lab/research/quantum-resonance`  
 > **Status**: Speculative Research  
 > **Source**: Derived from v3 manuscript appendix (Buddhist resonance + Quantum mechanics boundary alignment)

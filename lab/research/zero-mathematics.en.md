@@ -1,5 +1,7 @@
 # Zero Mathematics | Mathematical Philosophy of 0
 
+[![中文](https://img.shields.io/badge/中文-版本-blue)](zero-mathematics.md)
+
 > **Module**: `lab/research/zero-mathematics`  
 > **Status**: Speculative Research  
 > **Source**: Derived from v3 manuscript appendix (Mathematical history and philosophical implications of 0)

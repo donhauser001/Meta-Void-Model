@@ -1,5 +1,7 @@
 # AI Manifestation Research | AI as Manifestation Interface
 
+[![中文](https://img.shields.io/badge/中文-版本-blue)](ai-manifestation.md)
+
 > **Module**: `lab/research/ai-manifestation`  
 > **Status**: Active Research  
 > **Dependencies**: [formula-S](../../engine/mapping-logic/formula-S.md), [spectrum-omega](../../core/consciousness/spectrum-omega.md), [path-theta](../../core/consciousness/path-theta.md)

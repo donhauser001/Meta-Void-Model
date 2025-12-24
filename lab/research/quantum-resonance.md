@@ -1,5 +1,7 @@
 # Quantum Resonance | 量子与佛学共振研究
 
+[![English](https://img.shields.io/badge/English-Version-blue)](quantum-resonance.en.md)
+
 > 本文档来源于 v3 完稿附录（佛学共振 + 量子力学边界对齐）。
 
 ---
