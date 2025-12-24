@@ -30,9 +30,19 @@
 
 ### Meta-Void (元虚空/非存在)
 
+> ⚠️ **术语澄清**：这里的 **Void** 并非物理真空或佛教"空性"，而是指**信息熵极高的、尚未被意识路径激活的结构性潜能场域**。它蕴含一切可能性，但尚未"显现"为任何确定形态。
+
 并非绝对的虚无，而是**"尚未被激活的全频结构场"**。
 
 它是无限现实可能性的静默叠加态（Potentiality Map）。
+
+```
+Non-Existence ≠ Nothingness
+非存在 ≠ 空无
+
+Non-Existence = Structured Potentiality awaiting activation
+非存在 = 等待激活的结构性潜能
+```
 
 ### Consciousness Dimensions ($\omega, \theta$)
 
