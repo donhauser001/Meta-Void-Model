@@ -1,5 +1,7 @@
 # Snapshot Chains | 快照链与非线性因果
 
+[![English](https://img.shields.io/badge/English-Version-blue)](snapshot-chains.en.md)
+
 > **模块职责**：定义快照如何形成链条、时间本质的重构、以及非线性因果关系  
 > **依赖模块**：`engine/snapshot-service/discrete-generation.md`  
 > **被依赖于**：`engine/mapping-logic/formula-S.md`, `modules/time-reconstruction.md`

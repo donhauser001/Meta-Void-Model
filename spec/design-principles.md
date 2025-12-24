@@ -1,5 +1,7 @@
 # Design Principles | 设计原则
 
+[![English](https://img.shields.io/badge/English-Version-blue)](design-principles.en.md)
+
 > 本文档来源于 v3 完稿序言部分，阐述 MVM 模型的创作初衷、方法论立场和学术声明。
 
 ---

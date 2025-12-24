@@ -1,5 +1,7 @@
 # Epilogue | 致未来读者
 
+[![English](https://img.shields.io/badge/English-Version-blue)](epilogue.en.md)
+
 > 本文档来源于 v3 完稿结尾部分（致未来的读者）。
 
 ---

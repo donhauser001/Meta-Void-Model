@@ -1,5 +1,7 @@
 # Paradigm Shift | 范式转换
 
+[![English](https://img.shields.io/badge/English-Version-blue)](paradigm-shift.en.md)
+
 > **模块职责**：定义 MVM 的核心范式——从"构成论"(Constitutionalism) 到"显现论"(Manifestationism) 的本体论转换。
 >
 > **依赖模块**：无（根模块）  

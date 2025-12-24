@@ -1,5 +1,7 @@
 # Discrete Generation | 五维快照的离散生成
 
+[![English](https://img.shields.io/badge/English-Version-blue)](discrete-generation.en.md)
+
 > **模块职责**：定义 MVM 核心渲染机制——五维快照的离散生成模型  
 > **依赖模块**：`core/meta-void/*`, `core/consciousness/*`  
 > **被依赖于**：`engine/snapshot-service/snapshot-chains.md`, `engine/mapping-logic/*`

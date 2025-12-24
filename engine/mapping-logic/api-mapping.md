@@ -1,5 +1,7 @@
 # API Mapping | 映射论与调用逻辑
 
+[![English](https://img.shields.io/badge/English-Version-blue)](api-mapping.en.md)
+
 > **模块职责**：阐述 MVM 的核心本体论范式——映射论，用 API 类比解释现实生成机制  
 > **依赖模块**：`engine/mapping-logic/formula-S.md`, `core/meta-void/*`  
 > **被依赖于**：`engine/mapping-logic/integral-model.md`, `modules/life-definition.md`

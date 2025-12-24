@@ -1,5 +1,7 @@
 # System Overview | 系统概览
 
+[![English](https://img.shields.io/badge/English-Version-blue)](system-overview.en.md)
+
 > 本文档整合自 v3 完稿的作品简介与第八章整合回顾，提供 MVM 模型的宏观逻辑流。
 
 ---

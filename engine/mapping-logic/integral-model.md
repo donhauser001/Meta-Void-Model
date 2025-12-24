@@ -1,5 +1,7 @@
 # Integral Model | 宇宙积分与整体显现
 
+[![English](https://img.shields.io/badge/English-Version-blue)](integral-model.en.md)
+
 > **模块职责**：连接微观快照生成与宏观宇宙图景，阐述整体显现机制  
 > **依赖模块**：`engine/mapping-logic/formula-S.md`, `engine/mapping-logic/api-mapping.md`  
 > **被依赖于**：`modules/life-definition.md`, `spec/paradigm-shift.md`

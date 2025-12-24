@@ -1,5 +1,7 @@
 # Manifesto | 开源宣言
 
+[![English](https://img.shields.io/badge/English-Version-blue)](manifesto.en.md)
+
 > **Module**: `spec/manifesto`  
 > **Purpose**: 说明为什么把这套理论放到 GitHub，以及我们希望它成为什么
 

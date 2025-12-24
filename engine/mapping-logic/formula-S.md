@@ -1,5 +1,7 @@
 # Formula S | 核心生成公式
 
+[![English](https://img.shields.io/badge/English-Version-blue)](formula-S.en.md)
+
 > **模块职责**：定义 MVM 的核心生成公式，统一所有意识参数与潜能映射  
 > **依赖模块**：`core/meta-void/*`, `core/consciousness/*`, `engine/snapshot-service/*`  
 > **被依赖于**：所有模块的理论基础

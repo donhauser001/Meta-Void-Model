@@ -1,5 +1,7 @@
 # Formal Appendix | 公理化附录
 
+[![English](https://img.shields.io/badge/English-Version-blue)](formal-appendix.en.md)
+
 > **Module**: `spec/formal-appendix`  
 > **Purpose**: MVM 核心概念的形式化定义与符号约定  
 > **Status**: Living Document (持续更新)
