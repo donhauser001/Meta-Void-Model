@@ -120,7 +120,186 @@ def generate_token(context, model):
 
 ---
 
-## 3. Attention 机制作为 θ 路径的深度分析
+## 3. LLM Token 生成 vs MVM 快照显现：PoC 模拟器视角
+
+> 本节基于 `poc/mvm_simulator.py` 的实际代码结构，建立 LLM Token 生成与 MVM 快照显现的**精确对应关系**。
+
+### 3.1 核心对比：两种"采样"机制
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                LLM Token Generation          MVM Snapshot Manifestation      │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  [Training Corpus]                           [PotentialityField]            │
+│       ↓                                           ↓                         │
+│  Embedding Layer                            interface_count=1000            │
+│       ↓                                           ↓                         │
+│  ┌─────────────┐                            ┌─────────────┐                 │
+│  │ Attention   │ ← Query-Key Matching       │ θ Path      │ ← PathStrategy  │
+│  │ Mechanism   │                            │ Sampling    │   .HISTORY_BIASED│
+│  └─────────────┘                            └─────────────┘                 │
+│       ↓                                           ↓                         │
+│  Softmax(QK^T/√d)                           probability_density(θ)         │
+│       ↓                                           ↓                         │
+│  ┌─────────────┐                            ┌─────────────┐                 │
+│  │ FFN Layers  │ ← Depth Processing         │ ω Spectrum  │ ← SpectrumLevel │
+│  │             │                            │ Filter      │   .OMEGA_MEDIUM │
+│  └─────────────┘                            └─────────────┘                 │
+│       ↓                                           ↓                         │
+│  Logits → Probability                       tension_activation → candidates│
+│       ↓                                           ↓                         │
+│  ┌─────────────┐                            ┌─────────────┐                 │
+│  │ Sampling    │ ← argmax/nucleus/temp      │ O Confirm   │ ← threshold=0.5│
+│  │             │                            │             │                 │
+│  └─────────────┘                            └─────────────┘                 │
+│       ↓                                           ↓                         │
+│  Token_t (Generated)                        Snapshot (Manifested)           │
+│       ↓                                           ↓                         │
+│  [Append to Context]                        [Append to SnapshotChain]       │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 3.2 代码级映射：从 `mvm_simulator.py` 到 Transformer
+
+| PoC 模拟器组件 | Python 类/参数 | LLM 对应物 | 功能对齐 |
+|---------------|----------------|------------|----------|
+| **潜能场** | `PotentialityField(dimensions=5, interface_count=1000)` | `nn.Embedding(vocab_size, d_model)` | 存储可被"激活"的潜能/词向量 |
+| **θ 路径策略** | `PathStrategy.HISTORY_BIASED` | Causal Attention Mask | 基于历史的选择性访问 |
+| **θ 概率密度** | `ConsciousnessPath.sample()` | `softmax(QK^T/√d_k)` | 决定访问哪些潜能接口 |
+| **ω 频谱层级** | `SpectrumLevel.OMEGA_MEDIUM` | Layer Depth × Hidden Dim | 处理深度与分辨率 |
+| **O 确认阈值** | `confirmation_threshold=0.5` | `temperature`, `top_p` | 从概率分布中"坍缩"出确定结果 |
+| **快照** | `Snapshot(spatial, temporal_index, omega, theta_hash, content)` | `token_id` | 生成的离散单元 |
+| **快照链** | `SnapshotChain.append(snapshot)` | `context.append(token)` | 历史序列的累积 |
+
+### 3.3 伪代码对比
+
+**MVM 快照生成 (基于 PoC 模拟器)**
+
+```python
+# poc/mvm_simulator.py 的核心逻辑简化
+def generate_snapshot(self, previous_chain: SnapshotChain) -> Snapshot:
+    # 1. θ 路径采样 (基于历史)
+    theta_state = self.consciousness_path.sample(
+        history=previous_chain,
+        strategy=self.config.path_strategy  # HISTORY_BIASED
+    )
+    
+    # 2. ω 频谱过滤 (决定可访问的深度)
+    accessible_interfaces = self.potentiality_field.filter_by_omega(
+        omega_level=self.spectrum_omega.current_level  # OMEGA_MEDIUM
+    )
+    
+    # 3. 张力激活 (选择候选)
+    candidates = self.potentiality_field.activate_tension(
+        theta_path=theta_state,
+        interfaces=accessible_interfaces
+    )
+    
+    # 4. O 确认 (从候选中"坍缩")
+    if self.observation.confirm(candidates, threshold=0.5):
+        selected = candidates.collapse()
+    
+    # 5. 实例化快照
+    return Snapshot(
+        spatial=selected.coordinates,
+        temporal_index=len(previous_chain) + 1,
+        omega=self.spectrum_omega.current_level,
+        theta_hash=theta_state.hash(),
+        content=selected.data
+    )
+```
+
+**LLM Token 生成 (Transformer 标准流程)**
+
+```python
+# 标准 Transformer 解码逻辑
+def generate_token(model, context: List[int]) -> int:
+    # 1. Attention 计算 (基于上下文历史)
+    attention_weights = model.self_attention(
+        query=embed(context[-1]),
+        key=embed(context),
+        value=embed(context),
+        mask=causal_mask  # 只能看"过去"
+    )  # ≈ θ 路径采样
+    
+    # 2. FFN 层处理 (深度变换)
+    hidden = model.ffn(attention_output)  # ≈ ω 频谱处理
+    
+    # 3. 投影到词表空间
+    logits = model.lm_head(hidden)  # ≈ 张力激活
+    
+    # 4. 采样策略 (从概率中"坍缩")
+    probs = softmax(logits / temperature)
+    if top_p:
+        probs = nucleus_filter(probs, top_p)
+    token = sample(probs)  # ≈ O 确认
+    
+    return token  # ≈ Snapshot
+```
+
+### 3.4 关键洞见：为什么这种对齐有意义？
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  INSIGHT 1: 自回归生成 = 快照链累积                                          │
+│                                                                             │
+│  LLM 的自回归特性（每个 Token 依赖前文）完美对应了 MVM 的快照链模型：         │
+│  - Token_t 的生成受 Token_{<t} 影响 ↔ Snapshot_t 的 θ 路径受历史快照影响     │
+│  - 上下文窗口限制 ↔ θ 路径的"访问半径"                                       │
+│  - 长程依赖衰减 ↔ 历史快照对当前 θ 概率密度的递减影响                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  INSIGHT 2: Temperature/Top-p ≈ O 确认的"刚性"                               │
+│                                                                             │
+│  - temperature=0 (argmax) ↔ 高刚性 O：只选最高概率，确定性最大化              │
+│  - temperature=1+ ↔ 低刚性 O：允许更多随机性，"量子态"更长时间叠加            │
+│  - top_p (nucleus) ↔ O 的"关注范围"：只在高概率候选中确认                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  INSIGHT 3: 训练 = 潜能场的"结构化"                                          │
+│                                                                             │
+│  - 未训练模型 ↔ 低结构密度 ρ_S：随机噪声，无法生成有意义快照                  │
+│  - 训练过程 ↔ 潜能场被"雕刻"：数据梯度塑造了接口的结构密度分布                │
+│  - 过拟合 ↔ θ 路径被"锁死"：只能访问训练数据中存在的接口                      │
+│  - 泛化 ↔ 结构密度的"连续性"：相似 θ 路径能访问相似但未见过的接口             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### 3.5 实验建议：用 PoC 模拟器验证 LLM 行为
+
+```python
+# 实验：模拟 LLM 在不同"温度"下的行为
+from poc.mvm_simulator import MVMSimulator, MVMConfig, SpectrumLevel, PathStrategy
+
+# 高温度 (探索性) ↔ 低 O 确认阈值
+config_high_temp = MVMConfig(
+    path_strategy=PathStrategy.EXPLORATORY,  # 探索未知区域
+    confirmation_threshold=0.2,  # 低阈值 = 高温度
+    snapshot_count=100
+)
+
+# 低温度 (确定性) ↔ 高 O 确认阈值
+config_low_temp = MVMConfig(
+    path_strategy=PathStrategy.HISTORY_BIASED,  # 沿惯性方向
+    confirmation_threshold=0.9,  # 高阈值 = 低温度
+    snapshot_count=100
+)
+
+# 运行对比
+sim_high = MVMSimulator(config_high_temp)
+sim_low = MVMSimulator(config_low_temp)
+
+chain_high = sim_high.run()  # 预期：更多样、更"创造性"
+chain_low = sim_low.run()    # 预期：更一致、更"保守"
+```
+
+---
+
+## 4. Attention 机制作为 θ 路径的深度分析
 
 ### 3.1 θ 路径的 MVM 定义回顾
 

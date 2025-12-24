@@ -118,6 +118,31 @@ Non-Existence = Structured Potentiality awaiting activation
 
 > 📖 **完整术语表与中英对照** → [assets/glossary.md](assets/glossary.md)
 
+<details>
+<summary>🔬 <b>点击展开：单帧快照生命周期时序图</b></summary>
+
+```mermaid
+sequenceDiagram
+    participant You as 意识接口 (你)
+    participant θ as θ 路径
+    participant ω as ω 频谱
+    participant ρS as 潜能场 ρ_S
+    participant S as 快照 S
+    
+    You->>θ: 1. 注意力焦点
+    θ->>ω: 2. 权限验证
+    ω->>ρS: 3. 调用转发
+    ρS-->>ρS: 4. 前震酝酿
+    You->>ρS: 5. O 确认
+    ρS->>S: 6. 快照生成
+    S->>You: 7. 渲染体验
+    You->>θ: 8. 状态更新 (循环)
+```
+
+**完整时序图（含 6 阶段 10 步骤）** → [spec/system-overview.md](spec/system-overview.md#二-单帧快照生命周期精确时序图)
+
+</details>
+
 ---
 
 ## 03. 形式化逻辑 (Formal Logic)

@@ -95,6 +95,31 @@ The **space-time quantized unit** of reality.
 
 Each moment of "now" is a **discrete sampling** and **rendering** of the Meta-Void tension by consciousness at a specific frequency.
 
+<details>
+<summary>🔬 <b>Click to expand: Single Frame Snapshot Lifecycle</b></summary>
+
+```mermaid
+sequenceDiagram
+    participant You as Consciousness Interface (You)
+    participant θ as θ Path
+    participant ω as ω Spectrum
+    participant ρS as Potentiality Field ρ_S
+    participant S as Snapshot S
+    
+    You->>θ: 1. Attention Focus
+    θ->>ω: 2. Permission Check
+    ω->>ρS: 3. Call Forward
+    ρS-->>ρS: 4. Foreshock Brewing
+    You->>ρS: 5. O Confirmation
+    ρS->>S: 6. Snapshot Generation
+    S->>You: 7. Render Experience
+    You->>θ: 8. State Update (Loop)
+```
+
+**Full Sequence Diagram (6 Phases, 10 Steps)** → [spec/system-overview.md](spec/system-overview.md)
+
+</details>
+
 ---
 
 ## Core Formula
@@ -112,6 +137,39 @@ Where:
 - **O**: Observation action (confirmation/locking)
 
 > **Note:** The ⊗ operator represents **nonlinear tension convolution**, implying reality is not simple superposition, but a dynamic perturbation of the background field by consciousness paths.
+
+---
+
+## The API Analogy: Mapping Theory
+
+MVM replaces the traditional "compositionism" (reality = assembled particles) with **"mapping theory"**:
+
+```
+Reality Generation ≈ API Call
+
+┌─────────────────────────────────────────────────────────────────┐
+│  Request (Consciousness Path θ)                                  │
+│      ↓                                                          │
+│  Authentication (Spectrum ω checks access level)                 │
+│      ↓                                                          │
+│  Processing (Potentiality Field ρ_S responds to call)           │
+│      ↓                                                          │
+│  Confirmation (Observation O collapses superposition)            │
+│      ↓                                                          │
+│  Response (Snapshot S is returned and rendered)                  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Key Implications:**
+
+| Aspect | Compositionism (Old) | Mapping Theory (MVM) |
+|--------|----------------------|----------------------|
+| **Building Blocks** | Fundamental particles | Potentiality interfaces |
+| **Assembly** | Physical combination | Function call & mapping |
+| **Observer** | External spectator | Execution environment |
+| **Reality** | Pre-existing | Dynamically rendered |
+
+→ See [engine/mapping-logic/api-mapping.md](engine/mapping-logic/api-mapping.md) for full details
 
 ---
 
