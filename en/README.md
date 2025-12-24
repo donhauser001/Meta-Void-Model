@@ -45,6 +45,25 @@ We no longer view the universe as "an assembly of particles," but rather as a **
 
 ---
 
+## 🧑‍💻 Maintainer's Mindset
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                         │
+│   I maintain this project with the hacker mindset of                    │
+│   "writing the universe's underlying driver protocol,"                  │
+│   not with the prophet mindset of "guarding the ultimate truth."        │
+│                                                                         │
+│   ─────────────────────────────────────────────────────────────────     │
+│                                                                         │
+│   • Code can be refactored, axioms can be revised, paradigms can evolve │
+│   • Forks welcome, PRs welcome, rational refutations even more welcome  │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## 🧩 System Architecture
 
 The entire model is decoupled through four core layers, simulating the manifestation flow of the universe:
