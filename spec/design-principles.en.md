@@ -24,7 +24,7 @@ The book's core idea originates from a perplexity: Does the reality we experienc
 
 In this exploration, the book attempts the following conceptual constructions and reflections:
 
-**Reflection on "Constitutionalism":** Examining limitations of the traditional paradigm viewing universe as "constituted" by elementary particles, particularly at quantum level and before consciousness phenomena.
+**Reflection on "Compositionism":** Examining limitations of the traditional paradigm viewing universe as "composed" of elementary particles, particularly at quantum level and before consciousness phenomena.
 
 **Re-understanding of "Non-Existence":** Attempting to detach "Non-existence" from traditional understanding as "void," envisioning it as a "pre-manifestation" field filled with structural potentiality awaiting activation (termed "Non-existence tension structure" or "Potentiality Interface Atlas").
 
@@ -32,7 +32,7 @@ In this exploration, the book attempts the following conceptual constructions an
 
 **"Snapshot" Conjecture of Reality Generation:** Proposing the conjecture that reality may be generated in discrete "five-dimensional snapshot" form, attempting to use this to explain possible mechanisms of time flow sensation, memory, premonition, and other phenomena.
 
-**Preliminary Conception of "Mapping Theory":** Proposing "Mapping Theory" as an alternative ontological perspective to "Constitutionalism," understanding reality generation as consciousness path's "invocation" and "mapping" of potentiality interfaces.
+**Preliminary Conception of "Mapping Theory":** Proposing "Mapping Theory" as an alternative ontological perspective to "Compositionism," understanding reality generation as consciousness path's "invocation" and "mapping" of potentiality interfaces.
 
 **Exploratory Thinking on "Life" Concept Extension:** Based on "manifestation capability," exploratorily redefining "vitality" and considering its possible application to non-biological systems.
 

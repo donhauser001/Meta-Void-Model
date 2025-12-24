@@ -1,0 +1,104 @@
+# Layered Licensing | 分层授权协议
+
+This project uses a **layered licensing** strategy to balance open collaboration with intellectual protection.
+
+本项目采用**分层授权**策略，平衡开放协作与知识产权保护。
+
+---
+
+## License Overview | 协议概览
+
+| Scope | License | Description |
+|-------|---------|-------------|
+| Documentation (`.md` files) | CC BY-NC-ND 4.0 | Protect original text integrity |
+| Archive (`archive/`) | CC BY-NC-ND 4.0 | Original manuscript protection |
+| Code (`poc/`, demos) | MIT | Allow free modification and commercial use |
+| Issue templates, configs | CC0 | Public domain |
+
+---
+
+## 1. Documentation & Archive — CC BY-NC-ND 4.0
+
+**Applies to:** All `.md` files, `archive/` directory, PDF/DOCX manuscripts
+
+### Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International
+
+You are free to:
+- **Share** — copy and redistribute the material in any medium or format
+
+Under the following terms:
+- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+- **NonCommercial** — You may not use the material for commercial purposes.
+- **NoDerivatives** — If you remix, transform, or build upon the material, you may not distribute the modified material.
+
+Full license text: https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
+
+---
+
+## 2. Code — MIT License
+
+**Applies to:** `poc/` directory, `demo/` code files, any future code contributions
+
+### MIT License
+
+Copyright (c) 2025 Meta-Void-Model Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## 3. Templates & Configurations — CC0 1.0
+
+**Applies to:** `.github/` templates, GitHub configurations
+
+### CC0 1.0 Universal (Public Domain Dedication)
+
+The person who associated a work with this deed has dedicated the work to the 
+public domain by waiving all of his or her rights to the work worldwide under 
+copyright law, including all related and neighboring rights, to the extent 
+allowed by law.
+
+Full license text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+---
+
+## Contributor Agreement | 贡献者协议
+
+By submitting contributions to this repository, you agree that:
+
+1. Your documentation contributions will be licensed under **CC BY-NC-ND 4.0**
+2. Your code contributions will be licensed under **MIT License**
+3. You will receive appropriate **contributor attribution** in published versions
+
+通过向本仓库提交贡献，您同意：
+
+1. 您的文档贡献将遵循 **CC BY-NC-ND 4.0** 协议
+2. 您的代码贡献将遵循 **MIT 许可证**
+3. 您将在发布版本中获得相应的**贡献者署名**
+
+---
+
+<div align="center">
+
+*"Truth does not fear scrutiny; it only fears mediocre assent."*
+
+*"真理不惧怕审视，它只惧怕平庸的附和。"*
+
+</div>
+

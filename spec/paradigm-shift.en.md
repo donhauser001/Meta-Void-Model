@@ -2,7 +2,7 @@
 
 [![中文](https://img.shields.io/badge/中文-版本-blue)](paradigm-shift.md)
 
-> **Module Responsibility**: Define MVM's core paradigm—the ontological transformation from "Constitutionalism" to "Manifestationism."
+> **Module Responsibility**: Define MVM's core paradigm—the ontological transformation from "Compositionism" to "Manifestationism."
 >
 > **Dependencies**: None (root module)  
 > **Depended By**: `core/*`, `engine/*`, `modules/*`
@@ -16,7 +16,7 @@
 │                    MVM Paradigm Shift Core Declaration                  │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
-│   ❌ Constitutionalism (Traditional Paradigm)                           │
+│   ❌ Compositionism (Traditional Paradigm)                              │
 │      Universe = Σ Elementary Particles                                  │
 │      Reality = Pre-existing objective entity                            │
 │      Consciousness = Byproduct of matter's complexification             │
@@ -161,7 +161,7 @@ MVM Position: These three cracks point to the same root ——
 
 ## 3. Paradigm Comparison Matrix
 
-| Dimension | Constitutionalism | Manifestationism |
+| Dimension | Compositionism | Manifestationism |
 |-----------|-------------------|------------------|
 | **Ontological Foundation** | Material entity | Potentiality structure |
 | **Basic Unit** | Particle | Snapshot |

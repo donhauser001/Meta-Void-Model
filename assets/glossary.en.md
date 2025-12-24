@@ -190,7 +190,7 @@
 
 | Term | Traditional Paradigm | MVM Paradigm |
 |------|---------------------|--------------|
-| **Constitutionalism** | Universe built from particles | — |
+| **Compositionism** | Universe built from particles | — |
 | **Manifestationism** | — | Universe rendered by consciousness |
 | **Time** | Background dimension | Displacement sensation of snapshot sequence |
 | **Space** | Container | Coordinate system of rendering output |

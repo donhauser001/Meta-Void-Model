@@ -90,7 +90,7 @@ In "Meta-Void Model's" layer-by-layer construction, we gradually introduced and 
 
 > Mapping Theory
 
-**Reviewing its paradigm:** This is the new paradigm providing **ontological explanatory framework and operational logic** for the entire model. It replaces traditional "Constitutionalism," asserting that reality generation is the process of **consciousness path "invoking" and "mapping" potentiality interface atlas**, not combination of material "building blocks."
+**Reviewing its paradigm:** This is the new paradigm providing **ontological explanatory framework and operational logic** for the entire model. It replaces traditional "Compositionism," asserting that reality generation is the process of **consciousness path "invoking" and "mapping" potentiality interface atlas**, not combination of material "building blocks."
 
 - **Invocation not Construction:** Emphasizes information interaction and functional realization over material stacking.
 - **Interface not Entity:** Shifts focus from seeking elementary particles to understanding potentiality structure's interaction interface.
