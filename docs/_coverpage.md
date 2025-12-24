@@ -14,5 +14,5 @@
 
 [GitHub](https://github.com/donhauser001/Meta-Void-Model)
 [开始阅读](#tldr--10-秒入门)
-[Release v3.0.0](https://github.com/donhauser001/Meta-Void-Model/releases/tag/v3.0.0)
+[Release v3.0.1](https://github.com/donhauser001/Meta-Void-Model/releases/tag/v3.0.1)
 

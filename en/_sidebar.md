@@ -42,6 +42,6 @@
 
 * **📖 Resources**
   * [Contributing Guide](CONTRIBUTING.md)
-  * [Release v3.0.0](https://github.com/donhauser001/Meta-Void-Model/releases/tag/v3.0.0)
+  * [Release v3.0.1](https://github.com/donhauser001/Meta-Void-Model/releases/tag/v3.0.1)
 
 
