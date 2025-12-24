@@ -1,5 +1,7 @@
 # 🧪 Proof of Concept | 概念验证模拟器
 
+[![English](https://img.shields.io/badge/English-Version-blue)](README.en.md)
+
 > **License**: MIT (可自由修改、商业使用)  
 > **声明**：这是一个**概念性模拟**，用于展示 MVM 核心公式的逻辑结构，而非物理现实的精确模型。
 

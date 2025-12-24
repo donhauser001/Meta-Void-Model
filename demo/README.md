@@ -1,5 +1,7 @@
 # 🎨 Demo | 可视化演示
 
+[![English](https://img.shields.io/badge/English-Version-blue)](README.en.md)
+
 > 本目录包含 MVM 的交互式可视化演示。
 
 ---
