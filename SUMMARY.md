@@ -1,5 +1,7 @@
 # 系统导航 (System Navigation)
 
+[![English](https://img.shields.io/badge/English-Version-blue)](SUMMARY.en.md)
+
 > **Meta-Void-Model (MVM)** 工程化架构索引
 
 ---
