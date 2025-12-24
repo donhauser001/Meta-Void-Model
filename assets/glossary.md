@@ -1,5 +1,7 @@
 # 系统术语表 (Glossary)
 
+[![English](https://img.shields.io/badge/English-Version-blue)](glossary.en.md)
+
 > **MVM 核心概念索引** — 双向链接支持
 
 ---

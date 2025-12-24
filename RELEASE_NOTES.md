@@ -1,5 +1,7 @@
 # Release v3.0.0 — Foundational Manuscript
 
+[![English](https://img.shields.io/badge/English-Version-blue)](RELEASE_NOTES.en.md)
+
 **Meta-Void-Model (MVM) 首个正式版本发布**
 
 *从意识维度出发的非存在宇宙观：一个离散现实渲染的逻辑框架*

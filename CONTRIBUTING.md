@@ -1,5 +1,7 @@
 # 贡献指南 (Contributing to MVM)
 
+[![English](https://img.shields.io/badge/English-Version-blue)](CONTRIBUTING.en.md)
+
 感谢你关注 **Meta-Void-Model (MVM)**。
 
 本仓库不仅仅是一个理论的陈列馆，更是一个开放的**逻辑压力测试场**。由于本模型试图在物理学、信息论与现象学之间建立跨学科联系，我深知单一个体的视角必然存在局限。
