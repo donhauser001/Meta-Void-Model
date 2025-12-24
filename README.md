@@ -6,8 +6,7 @@
 
 <div align="center">
 
-<!-- Social Preview Image -->
-<!-- <img src="Assets/banner.png" alt="MVM Banner" width="800"/> -->
+<img src="Assets/banner.jpg" alt="Meta-Void-Model Banner" width="100%"/>
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
