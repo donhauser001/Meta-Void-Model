@@ -6,7 +6,7 @@
 
 <div align="center">
 
-<img src="Assets/banner-v2.jpg" alt="Meta-Void-Model Banner" width="100%"/>
+<img src="assets/diagrams/banner-v2.jpg" alt="Meta-Void-Model Banner" width="100%"/>
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
@@ -96,18 +96,20 @@ MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 
 ---
 
-## 06. 理论地图 (Theory Map)
+## 06. 系统导航 (System Navigation)
 
-> **快速导航核心概念**
+> **快速导航核心模块**
 
-| 层级 | 概念 | 入口 |
+| 模块 | 职责 | 入口 |
 |:----:|------|------|
-| 🌌 **底层场域** | 元虚空 / Meta-Void | [→ 4.1](Theory/Volume_1_Three_Pillars/4.1_The_Meta_Void.md) |
-| 🔧 **调用工具** | 意识频谱 ω | [→ 2.2](Theory/Volume_1_Three_Pillars/2.2_Spectrum_Omega.md) |
-| 🔧 **调用工具** | 意识路径 θ | [→ 2.3](Theory/Volume_1_Three_Pillars/2.3_Path_Theta.md) |
-| 📸 **渲染结果** | 五维快照 Snapshot | [→ 3.1](Theory/Volume_1_Three_Pillars/3.1_Snapshot_Mechanism.md) |
-| ⚙️ **整合公式** | 生成引擎 | [→ 5.1](Theory/Volume_2_Mapping_Theory/5.1_Generation_Formula.md) |
-| 📖 **完整目录** | SUMMARY | [→ 导航索引](SUMMARY.md) |
+| 📋 `spec/` | 系统规范与设计原则 | [→ paradigm-shift](spec/paradigm-shift.md) |
+| 🔧 `core/meta-void` | 元虚空定义 | [→ tension-structure](core/meta-void/tension-structure.md) |
+| 🔧 `core/consciousness` | 意识维度参数 | [→ spectrum-omega](core/consciousness/spectrum-omega.md) |
+| ⚙️ `engine/snapshot-service` | 快照渲染服务 | [→ discrete-generation](engine/snapshot-service/discrete-generation.md) |
+| ⚙️ `engine/mapping-logic` | 映射引擎 | [→ formula-S](engine/mapping-logic/formula-S.md) |
+| 📦 `modules/` | 扩展模块 | [→ life-definition](modules/life-definition.md) |
+| 🔬 `lab/` | 实验与前瞻 | [→ thought-experiments](lab/verification/thought-experiments.md) |
+| 📖 **完整索引** | SUMMARY | [→ 系统导航](SUMMARY.md) |
 
 ---
 
@@ -116,15 +118,36 @@ MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 ```
 ├── README.md
 ├── CONTRIBUTING.md
-├── SUMMARY.md                          # 导航索引
-├── Theory/
-│   ├── Volume_0_Introduction/          # 序章：范式转移
-│   ├── Volume_1_Three_Pillars/         # 第一卷：三大核心工具
-│   ├── Volume_2_Mapping_Theory/        # 第二卷：映射论与生成公式
-│   ├── Volume_3_Implications/          # 第三卷：应用与终局
-│   └── Volume_4_Appendix/              # 第四卷：附件与术语表
-├── Symbols/                            # 形式化符号定义
-└── Assets/                             # 视觉资产
+├── SUMMARY.md                          # 系统导航索引
+├── spec/                               # 系统规范
+│   ├── paradigm-shift.md
+│   ├── design-principles.md
+│   └── system-overview.md
+├── core/                               # 核心机制
+│   ├── meta-void/
+│   │   ├── tension-structure.md
+│   │   └── potentiality-field.md
+│   └── consciousness/
+│       ├── spectrum-omega.md
+│       ├── path-theta.md
+│       └── distributed-network.md
+├── engine/                             # 渲染与映射引擎
+│   ├── snapshot-service/
+│   │   ├── discrete-generation.md
+│   │   └── snapshot-chains.md
+│   └── mapping-logic/
+│       ├── formula-S.md
+│       ├── api-mapping.md
+│       └── integral-model.md
+├── modules/                            # 扩展模块
+│   ├── life-definition.md
+│   └── macro-entities.md
+├── lab/                                # 实验与前瞻
+│   ├── verification/
+│   └── research/
+└── assets/                             # 静态资产
+    ├── glossary.md
+    └── diagrams/
 ```
 
 ---
