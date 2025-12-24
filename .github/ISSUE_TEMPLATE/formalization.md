@@ -6,6 +6,8 @@ labels: ["formalization", "enhancement"]
 assignees: []
 ---
 
+[![English](https://img.shields.io/badge/English-Version-blue)](formalization.en.md)
+
 ## 🎯 Target Concept | 目标概念
 
 > 你希望形式化哪个概念？

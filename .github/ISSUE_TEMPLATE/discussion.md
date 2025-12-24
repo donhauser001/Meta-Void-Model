@@ -6,6 +6,8 @@ labels: ["discussion"]
 assignees: []
 ---
 
+[![English](https://img.shields.io/badge/English-Version-blue)](discussion.en.md)
+
 ## 📌 Topic | 讨论主题
 
 > 简要描述你想讨论的主题

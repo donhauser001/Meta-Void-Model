@@ -6,6 +6,8 @@ labels: ["refutation", "critical"]
 assignees: []
 ---
 
+[![English](https://img.shields.io/badge/English-Version-blue)](refutation.en.md)
+
 ## 🎯 Target Axiom / Module | 目标公理/模块
 
 > 请明确指出你要证伪的公理编号或模块路径
