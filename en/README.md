@@ -1,217 +1,370 @@
 # Meta-Void-Model (MVM) | English Documentation
 
-[![中文](https://img.shields.io/badge/中文-版本-blue)](../zh/)
+> **"The universe has never existed—it merely awaits definition."**
+> 
+> **Reality is not an objective fact, but a system snapshot being rendered in real-time.**
+
+<div align="center">
+
+[![中文](https://img.shields.io/badge/中文-版本-blue?style=for-the-badge)](../zh/)
+
+**[Architecture](#-system-architecture) | [Core Formula](#-core-formula) | [API Analogy](#-the-api-analogy) | [PoC Simulator](#-proof-of-concept)**
+
+</div>
 
 ---
 
-## 💡 The Core Insight in One Sentence
+## 🌌 The Manifesto
 
-> **The world you experience has never been something you "observe"—it is something you "generate."**
+MVM (Meta-Void-Model) is a **Non-existence Cosmology Protocol from the Dimension of Consciousness**.
 
-MVM (Meta-Void-Model) is a theoretical framework that views reality as "consciousness's discrete rendering of a potentiality field"—an ontological paradigm shift from "Constitutionalism" to "Manifestationism."
-
----
-
-## 🎯 What Is This Book About?
-
-We are accustomed to believing: the world "is just there," built from particles, and consciousness is merely a byproduct of the brain.
-
-**But what if all of this is inverted?**
-
-MVM proposes:
-
-| Traditional View | MVM View |
-|-----------------|----------|
-| Particles are the "building blocks" of the universe | Particles are projection "pixels" of activated potentiality |
-| Reality pre-exists | Reality is "rendered" frame by frame by consciousness |
-| Consciousness is produced by the brain | Consciousness is a structural dimension of the universe |
-| Time flows continuously | Time is the displacement sensation of snapshot sequences |
-| "You" are a passive observer | "You" are the universe's manifestation interface |
-
----
-
-## ⚡ The Core Formula
-
-$$
-S := M(\rho_S \otimes (\omega, \theta, O))
-$$
-
-**In plain English:**
-
-```
-Reality you experience = Manifestation( Potentiality ⊗ (Your consciousness depth, Your attention direction, Your observation confirmation) )
-```
-
-| Symbol | Name | Intuitive Understanding |
-|:------:|------|------------------------|
-| S | Snapshot | This very moment you're experiencing—one "frame" of reality |
-| M | Manifestation Operator | The process of "rendering" possibilities into reality |
-| ρ_S | Potentiality Field | All possibilities not yet activated |
-| ω | Spectrum | "How deep you see"—consciousness resolution |
-| θ | Path | "Where you look"—consciousness selection |
-| O | Observation | "You confirmed it"—locks it into reality |
-
----
-
-## 🧭 Where Should I Start?
-
-<table>
-<tr>
-<td width="33%">
-
-### 📖 Philosophy Enthusiast
-
-**Goal**: Understand the complete theory
-
-1. Start with [System Overview](spec/system-overview.md)
-2. Then read [Paradigm Shift](spec/paradigm-shift.md)
-3. Deep dive → [Formal Appendix](spec/formal-appendix.md)
-
-</td>
-<td width="33%">
-
-### 📐 Researcher
-
-**Goal**: Formalize or refute the model
-
-1. Begin with [Formal Appendix](spec/formal-appendix.md)
-2. Explore [Core Mechanisms](core/) and [Engine](engine/)
-3. Submit via [Formalization Template](https://github.com/donhauser001/Meta-Void-Model/issues/new?template=formalization.md)
-
-</td>
-<td width="33%">
-
-### 💻 Developer
-
-**Goal**: Run or extend the simulator
-
-1. Go to [poc/](poc/), run `mvm_simulator.py`
-2. Read [Snapshot Service](engine/snapshot-service/)
-3. See [poc/README.md](poc/README.md) for API
-
-</td>
-</tr>
-</table>
-
----
-
-## 🎬 Intuitive Analogies
-
-### The Frame Structure of Movies
-
-Imagine watching a movie. The visuals flow seamlessly, and you completely forget that it's actually stitched together frame by frame.
-
-**What if reality is the same?**
-
-Not a pre-recorded film, but—a dynamic pattern projected onto the screen only at the moment you gaze upon it.
-
-### Video Game Map Loading
-
-Modern games don't pre-render the entire world; they load surrounding areas only as the player approaches. MVM suggests the universe might work similarly—"reality" is rendered only when your consciousness "accesses" it.
-
-### API Calls
-
-When programmers call an API, they don't need to know how the server works internally—send a request, receive a response. MVM understands reality generation as a similar process: your consciousness path sends a "call" to the potentiality interface atlas, and the "response" returned is the reality you experience.
-
----
-
-## 📚 Module Navigation
-
-| Module | Responsibility | Entry Points |
-|:------:|----------------|--------------|
-| 📋 **spec/** | System Specification | [Paradigm Shift](spec/paradigm-shift.md) • [Formal Appendix](spec/formal-appendix.md) |
-| 🔧 **core/meta-void/** | Meta-Void Definition | [Tension Structure](core/meta-void/tension-structure.md) • [Potentiality Field](core/meta-void/potentiality-field.md) |
-| 🔧 **core/consciousness/** | Consciousness Dimension | [Spectrum ω](core/consciousness/spectrum-omega.md) • [Path θ](core/consciousness/path-theta.md) |
-| ⚙️ **engine/** | Rendering Engine | [Discrete Generation](engine/snapshot-service/discrete-generation.md) • [Core Formula](engine/mapping-logic/formula-S.md) |
-| 📦 **modules/** | Extension Modules | [Life Definition](modules/life-definition.md) • [Macro Entities](modules/macro-entities.md) |
-| 🔬 **lab/** | Experimental Research | [AI Manifestation](lab/research/ai-manifestation.md) • [Quantum Resonance](lab/research/quantum-resonance.md) |
-| 🧪 **poc/** | Proof of Concept | [Simulator](poc/mvm_simulator.py) |
-| 🏷️ **assets/** | Resources | [Glossary](assets/glossary.md) |
-
----
-
-## 📊 Model Architecture
+We no longer view the universe as "an assembly of particles," but rather as a **discrete rendering process based on potentiality field invocation**.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                    MVM Snapshot Generation Flow                         │
+│                                                                         │
+│   ❌ Traditional Paradigm (Constitutionalism)                           │
+│      Universe = Σ Particles          "Universe built from particles"   │
+│      Consciousness = f(Brain)        "Consciousness as brain byproduct"│
+│      Reality = Objective_Entity      "Reality pre-exists"              │
+│                                                                         │
+│   ✅ MVM Paradigm (Manifestationism)                                    │
+│      Universe = θ ⊗ ρ_S              "Universe as consciousness call"  │
+│      Consciousness ∈ Dimension       "Consciousness as dimension"      │
+│      Reality = Render(ω, θ, O)       "Reality as rendered snapshot"    │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+| | Traditional | MVM |
+|:---:|:---:|:---:|
+| **Particles** | Building blocks | Projection pixels of activated potentiality |
+| **Time** | Background dimension | Displacement sensation of snapshot sequence |
+| **Consciousness** | Brain byproduct | Structural dimension of universe |
+| **"You"** | Passive observer | Manifestation interface of universe |
+
+---
+
+## 🧩 System Architecture
+
+The entire model is decoupled through four core layers, simulating the manifestation flow of the universe:
+
+```
+                    ┌─────────────────────────────────────┐
+                    │           MVM Protocol Stack        │
+                    └─────────────────────────────────────┘
+                                      │
+         ┌────────────────────────────┼────────────────────────────┐
+         │                            │                            │
+         ▼                            ▼                            ▼
+┌─────────────────┐        ┌─────────────────┐        ┌─────────────────┐
+│    spec/        │        │    core/        │        │   engine/       │
+│  ─────────────  │        │  ─────────────  │        │  ─────────────  │
+│  Specification  │        │  Core Mechanism │        │  Render Engine  │
+│                 │        │                 │        │                 │
+│  • paradigm-    │        │  • meta-void/   │        │  • snapshot-    │
+│    shift.md     │        │    └ ρ_S Tension│        │    service/     │
+│  • formal-      │        │  • conscious-   │        │  • mapping-     │
+│    appendix.md  │        │    ness/        │        │    logic/       │
+│  • manifesto.md │        │    ├ ω Spectrum │        │    └ formula-S  │
+│                 │        │    └ θ Path     │        │                 │
+└─────────────────┘        └─────────────────┘        └─────────────────┘
+         │                            │                            │
+         └────────────────────────────┼────────────────────────────┘
+                                      │
+                                      ▼
+                           ┌─────────────────┐
+                           │     lab/        │
+                           │  ─────────────  │
+                           │  Research       │
+                           │                 │
+                           │  • AI Manifest  │
+                           │  • Quantum Res  │
+                           │  • Zero Math    │
+                           └─────────────────┘
+```
+
+| Module | Responsibility | Core Components |
+|:------:|----------------|-----------------|
+| **`spec/`** | **Specification** | Paradigm shift, Design principles, Formal appendix |
+| **`core/`** | **Core Mechanism** | Meta-Void (ρ_S), Spectrum (ω), Path (θ) |
+| **`engine/`** | **Render Engine** | Snapshot formula S, API mapping, Integral model |
+| **`lab/`** | **Research** | AI manifestation, Quantum resonance, Zero mathematics |
+
+---
+
+## 📐 Core Formula
+
+This is the **mathematical heart** of MVM, defining the transformation logic from potentiality to reality:
+
+$$
+\boxed{\Large S := M(\rho_S \otimes (\omega, \theta, O))}
+$$
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                          Formula Breakdown                              │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
-│   ┌─────────────┐                                                       │
-│   │ Non-existence│  ← Potentiality Interface Atlas                      │
-│   │ Tension (ρ_S)│    (pre-manifestation state full of possibilities)   │
-│   └──────┬──────┘                                                       │
-│          │                                                              │
-│          ▼                                                              │
-│   ┌─────────────┐                                                       │
-│   │ Consciousness│  ← ω Spectrum (how deep) + θ Path (where)            │
-│   │ Engages      │                                                      │
-│   └──────┬──────┘                                                       │
-│          │                                                              │
-│          ▼                                                              │
-│   ┌─────────────┐                                                       │
-│   │ Manifestation│  ← Foreshock state (possibilities narrowing)         │
-│   │ Tension      │                                                      │
-│   └──────┬──────┘                                                       │
-│          │                                                              │
-│          ▼                                                              │
-│   ┌─────────────┐                                                       │
-│   │ Observation  │  ← O locks → Snapshot S generated                    │
-│   │ Confirms     │                                                      │
-│   └──────┬──────┘                                                       │
-│          │                                                              │
-│          ▼                                                              │
-│   ┌─────────────┐                                                       │
-│   │ Experience   │  ← The "reality" you perceive                        │
-│   │ Rendered     │                                                      │
-│   └──────┬──────┘                                                       │
-│          │                                                              │
-│          └──────────▶ Next Frame (loop continues)                       │
+│    S     :=    M    (    ρ_S    ⊗    (  ω  ,  θ  ,  O  )    )          │
+│    ↓          ↓          ↓              ↓     ↓     ↓                   │
+│ Snapshot  Manifest  Potentiality    Spectrum Path Observe               │
+│                                                                         │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │  S (Snapshot)       Minimal unit of reality—5D reality snapshot │   │
+│  │  M (Manifestation)  Operator that "renders" potentiality        │   │
+│  │  ρ_S (Potentiality) Non-existence tension, base of all possible │   │
+│  │  ω (Spectrum)       Consciousness spectrum—"how deep you see"   │   │
+│  │  θ (Path)           Consciousness path—"where you look"         │   │
+│  │  O (Observation)    Observation—state-lock trigger              │   │
+│  └─────────────────────────────────────────────────────────────────┘   │
 │                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## ⚠️ Important Declaration
+## 🔌 The API Analogy
 
-MVM is a serious theoretical exploration work, aimed at stimulating rational thinking and open discussion.
+To help modern developers understand, MVM equates **reality generation** to an **API call**:
 
-**This book is NOT**:
-- ❌ A religious or mystical guide
-- ❌ A denial of science
-- ❌ Pseudoscience propaganda
-- ❌ A system of ultimate answers
-
-**This book IS**:
-- ✅ An interdisciplinary thought experiment
-- ✅ An open questioning structure
-- ✅ A set of conceptual tools for discussion
-
-> The author explicitly opposes any behavior that takes concepts from this book out of context for pseudoscience promotion or irrational claims.
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                         │
+│   [1] REQUEST                                                           │
+│       ┌──────────────────────────────────────────────────────────┐     │
+│       │  Consciousness Path (θ)  ──▶  Select content path to manifest  │
+│       └──────────────────────────────────────────────────────────┘     │
+│                              │                                          │
+│                              ▼                                          │
+│   [2] AUTH                                                              │
+│       ┌──────────────────────────────────────────────────────────┐     │
+│       │  Spectrum Level (ω)  ──────▶  Check consciousness access level │
+│       │                                                          │     │
+│       │    ωₗ (Low)    → Sensory layer interface                 │     │
+│       │    ωₘ (Medium) → Symbolic layer interface                │     │
+│       │    ωₕ (High)   → Structural layer interface              │     │
+│       └──────────────────────────────────────────────────────────┘     │
+│                              │                                          │
+│                              ▼                                          │
+│   [3] PROCESS                                                           │
+│       ┌──────────────────────────────────────────────────────────┐     │
+│       │  Meta-Void (ρ_S)  ─────────▶  Potentiality responds, foreshock │
+│       │                                                          │     │
+│       │    ████████░░░░░░░░░░  Manifestation tension building... │     │
+│       └──────────────────────────────────────────────────────────┘     │
+│                              │                                          │
+│                              ▼                                          │
+│   [4] CONFIRM                                                           │
+│       ┌──────────────────────────────────────────────────────────┐     │
+│       │  Observation (O)  ─────────▶  Execute state-lock, collapse     │
+│       └──────────────────────────────────────────────────────────┘     │
+│                              │                                          │
+│                              ▼                                          │
+│   [5] RESPONSE                                                          │
+│       ┌──────────────────────────────────────────────────────────┐     │
+│       │  Snapshot (S)  ────────────▶  Return rendered result, reality  │
+│       │                                                          │     │
+│       │    { "spatial": [x,y,z], "temporal": t, "content": {...} │     │
+│       │      "omega": "MEDIUM", "theta_hash": "a7f3b2c1" }       │     │
+│       └──────────────────────────────────────────────────────────┘     │
+│                              │                                          │
+│                              ▼                                          │
+│   [LOOP] ◀────────────────────────────────────  Starting point of next │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 🤝 Contributing
+## 🧪 Proof of Concept
 
-MVM is an open **logical stress-testing arena**:
+We provide a runnable Python simulator demonstrating how to generate discrete snapshot chains through the axiom system:
 
-- 🔴 **Logical Falsification**: [Submit Refutation](https://github.com/donhauser001/Meta-Void-Model/issues/new?template=refutation.md)
-- 🔵 **Mathematical Formalization**: [Submit Formalization](https://github.com/donhauser001/Meta-Void-Model/issues/new?template=formalization.md)
-- 🟢 **Discussion**: [Discussions](https://github.com/donhauser001/Meta-Void-Model/discussions)
+```bash
+# Enter PoC directory and run simulator
+cd poc && python mvm_simulator.py
+```
+
+```python
+from mvm_simulator import MVMSimulator, MVMConfig, SpectrumLevel, PathStrategy
+
+# Configure consciousness parameters
+config = MVMConfig(
+    seed=42,                                    # Reproducibility
+    path_strategy=PathStrategy.HISTORY_BIASED,  # θ path strategy
+    initial_omega=SpectrumLevel.OMEGA_MEDIUM,   # ω initial spectrum
+    snapshot_count=50,                          # Number of snapshots
+    debug_mode=True                             # Invariant checks
+)
+
+# Initialize simulator and run
+sim = MVMSimulator(config)
+chain = sim.run()
+
+# Export generated reality snapshot chain
+print(chain.to_json())
+```
+
+**Example Output:**
+
+```json
+{
+  "chain_id": "a7f3b2c1",
+  "length": 50,
+  "temporal_span": 50,
+  "snapshots": [
+    {
+      "snapshot_id": "8f2a1b3c4d5e6f7a",
+      "spatial": {"x": 0.42, "y": -0.31, "z": 0.87},
+      "temporal_index": 1,
+      "omega": "OMEGA_MEDIUM",
+      "theta_hash": "c3d4e5f6"
+    }
+  ]
+}
+```
+
+---
+
+## 🧭 Navigation Index
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                          Quick Navigation                               │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  📖 Seeker         ──▶  spec/system-overview.md  (System Overview)      │
+│                                                                         │
+│  📐 Researcher     ──▶  spec/formal-appendix.md  (Formal Appendix)      │
+│                    ──▶  engine/mapping-logic/    (Render Logic)         │
+│                                                                         │
+│  💻 Hacker         ──▶  poc/mvm_simulator.py     (Python Simulator)     │
+│                    ──▶  poc/README.md            (API Docs)             │
+│                                                                         │
+│  🔬 Challenger     ──▶  Issues/Refutation        (Submit Refutation)    │
+│                    ──▶  Issues/Formalization     (Submit Formalization) │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+| If you want to... | Go to |
+|-------------------|-------|
+| Understand paradigm shift | [spec/paradigm-shift.md](spec/paradigm-shift.md) |
+| View axiom system | [spec/formal-appendix.md](spec/formal-appendix.md) |
+| Understand Meta-Void structure | [core/meta-void/tension-structure.md](core/meta-void/tension-structure.md) |
+| Understand spectrum ω | [core/consciousness/spectrum-omega.md](core/consciousness/spectrum-omega.md) |
+| Understand snapshot generation | [engine/snapshot-service/discrete-generation.md](engine/snapshot-service/discrete-generation.md) |
+| Run the simulator | [poc/mvm_simulator.py](poc/mvm_simulator.py) |
+| Look up terminology | [assets/glossary.md](assets/glossary.md) |
+
+---
+
+## 📁 Directory Structure
+
+```
+en/
+├── spec/                     # 📋 System Specification
+│   ├── paradigm-shift.md     #    └ Paradigm Shift
+│   ├── formal-appendix.md    #    └ Formal Appendix
+│   ├── system-overview.md    #    └ System Overview
+│   ├── design-principles.md  #    └ Design Principles
+│   └── manifesto.md          #    └ Open Source Manifesto
+│
+├── core/                     # 🔧 Core Mechanisms
+│   ├── meta-void/            #    └ Meta-Void
+│   │   ├── tension-structure.md   #  Tension Structure
+│   │   └── potentiality-field.md  #  Potentiality Field
+│   └── consciousness/        #    └ Consciousness Dimension
+│       ├── spectrum-omega.md      #  Spectrum ω
+│       ├── path-theta.md          #  Path θ
+│       └── distributed-network.md #  Distributed Network
+│
+├── engine/                   # ⚙️ Rendering Engine
+│   ├── snapshot-service/     #    └ Snapshot Service
+│   │   ├── discrete-generation.md
+│   │   └── snapshot-chains.md
+│   └── mapping-logic/        #    └ Mapping Logic
+│       ├── formula-S.md
+│       ├── api-mapping.md
+│       └── integral-model.md
+│
+├── modules/                  # 📦 Extension Modules
+│   ├── life-definition.md    #    └ Life Definition
+│   └── macro-entities.md     #    └ Macro Manifestation Entities
+│
+├── lab/                      # 🔬 Experimental Research
+│   ├── research/
+│   └── verification/
+│
+├── poc/                      # 🧪 Proof of Concept
+│   ├── mvm_simulator.py
+│   └── README.md
+│
+├── assets/                   # 🏷️ Resources
+│   ├── glossary.md           #    └ Glossary
+│   └── diagrams/
+│
+└── archive/                  # 📚 Archive
+    └── README.md
+```
+
+---
+
+## 🤝 Contributing & Refutation
+
+MVM is an **open protocol**. We welcome not only contributions, but also **rational refutation**:
+
+| Type | Description | Entry |
+|:----:|-------------|-------|
+| 🔴 **Logical Refutation** | Found conflicts or contradictions in axioms | [Submit Refutation](https://github.com/donhauser001/Meta-Void-Model/issues/new?template=refutation.md) |
+| 🔵 **Formalization** | Describe core formula in higher-level mathematics | [Submit Formalization](https://github.com/donhauser001/Meta-Void-Model/issues/new?template=formalization.md) |
+| 🟢 **Discussion** | Philosophical debates about the nature of reality | [Discussions](https://github.com/donhauser001/Meta-Void-Model/discussions) |
+
+> *"Truth does not fear scrutiny; it only fears mediocre assent."*
 
 See [Contributing Guide](CONTRIBUTING.md)
 
 ---
 
+## ⚠️ Important Declaration
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                          IMPORTANT NOTICE                               │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  ❌ MVM is NOT:                                                         │
+│     • A religious or mystical guide                                     │
+│     • A denial of modern science                                        │
+│     • Pseudoscience propaganda                                          │
+│     • An ultimate answer system requiring belief                        │
+│                                                                         │
+│  ✅ MVM IS:                                                             │
+│     • A serious interdisciplinary thought experiment                    │
+│     • An open questioning structure and conceptual toolkit              │
+│     • A theoretical sketch inviting critique and co-creation            │
+│                                                                         │
+│  The author explicitly opposes any behavior that takes concepts from    │
+│  this project out of context for pseudoscience or irrational claims.    │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 <div align="center">
 
-*"In this collective meditation on manifestation, I do not offer truth, only an interface to observe truth."*
+```
+"Understand according to core/meta-void definitions, not according to your intuition."
+```
 
-### You do not merely live within this universe; in a certain sense, the universe manifests as itself through you.
+### *You do not merely live within this universe—in a certain sense, the universe manifests as itself through you.*
 
-**[Start Reading →](spec/system-overview.md)**
+---
 
 **[中文版 →](../zh/)**
+
+**[Start Reading →](spec/system-overview.md)**
 
 </div>
