@@ -1,5 +1,7 @@
 # Distributed Network | 分布式意识网络
 
+[![English](https://img.shields.io/badge/English-Version-blue)](distributed-network.en.md)
+
 > **模块职责**：阐述意识的分布式网络结构，说明个体如何作为宇宙意识网络中的动态节点  
 > **依赖模块**：`core/consciousness/spectrum-omega.md`, `core/consciousness/path-theta.md`  
 > **被依赖于**：`modules/life-definition.md`, `engine/mapping-logic/*`

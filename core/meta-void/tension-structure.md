@@ -1,5 +1,7 @@
 # Tension Structure | 非存在张力结构
 
+[![English](https://img.shields.io/badge/English-Version-blue)](tension-structure.en.md)
+
 > **模块职责**：定义 MVM 本体论基石——非存在张力结构 (Meta-Void Tension Structure)  
 > **依赖模块**：`spec/paradigm-shift.md`  
 > **被依赖于**：`core/consciousness/*`, `engine/*`, `modules/*`

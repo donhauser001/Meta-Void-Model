@@ -1,5 +1,7 @@
 # Path Theta | 意识路径 θ
 
+[![English](https://img.shields.io/badge/English-Version-blue)](path-theta.en.md)
+
 > **模块职责**：定义意识参数 θ——意识接入潜能结构的"方向"和"内容选择"  
 > **依赖模块**：`core/meta-void/tension-structure.md`, `core/consciousness/spectrum-omega.md`  
 > **被依赖于**：`engine/snapshot-service/*`, `engine/mapping-logic/*`

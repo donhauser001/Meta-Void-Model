@@ -1,5 +1,7 @@
 # Spectrum Omega | 意识频谱 ω
 
+[![English](https://img.shields.io/badge/English-Version-blue)](spectrum-omega.en.md)
+
 > **模块职责**：定义意识参数 ω——意识接入潜能结构的"深度"和"分辨率"层级  
 > **依赖模块**：`core/meta-void/tension-structure.md`  
 > **被依赖于**：`engine/snapshot-service/*`, `engine/mapping-logic/*`

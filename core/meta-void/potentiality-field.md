@@ -1,5 +1,7 @@
 # Potentiality Field | 潜能场与激活逻辑
 
+[![English](https://img.shields.io/badge/English-Version-blue)](potentiality-field.en.md)
+
 > **模块职责**：描述非存在张力如何通过"前震机制"酝酿并最终生成现实快照  
 > **依赖模块**：`core/meta-void/tension-structure.md`  
 > **被依赖于**：`engine/snapshot-service/*`, `engine/mapping-logic/*`
