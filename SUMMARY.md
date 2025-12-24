@@ -66,6 +66,25 @@
 
 ---
 
+## 📁 /archive — 原始文稿存档
+
+- [存档说明](archive/README.md)
+- `v3-完稿.md` — 原著全量 Markdown (~20万字)
+- `宇宙元模型-v3完稿.docx` — 原始 Word 文档
+
+---
+
+## 📚 补充说明
+
+每个核心模块（`/core`, `/engine`, `/modules`, `/spec`）都包含 **Research & Philosophical Notes** 章节，内容包括：
+
+- **Intuitive Analogies** — 直觉类比（如：未被敲击的鼓面、河流中的漩涡）
+- **Case Studies** — 案例分析（如：濒死体验、量子纠缠）
+- **Cross-disciplinary Dialogues** — 跨学科对话（如：与巴门尼德、胡塞尔、佛教空性）
+- **Open Questions** — 开放追问（如：第一帧问题、爱的本体论）
+
+---
+
 <div align="center">
 
 *"根据 `core/meta-void` 的定义，而不是根据第一章第三节。"*

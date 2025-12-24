@@ -120,6 +120,9 @@ MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 | 📦 `modules/` | 扩展模块 | [→ life-definition](modules/life-definition.md) |
 | 🔬 `lab/` | 实验与前瞻 | [→ thought-experiments](lab/verification/thought-experiments.md) |
 | 📖 **完整索引** | SUMMARY | [→ 系统导航](SUMMARY.md) |
+| 📁 **原始文稿** | 完整原著存档 | [→ archive/](archive/) |
+
+> 💡 **提示**：每个模块文件末尾都包含 `📚 Research & Philosophical Notes` 章节，保留了原著 20 万字中的哲学思辨、直觉类比和跨学科对话。
 
 ---
 
