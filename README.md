@@ -9,7 +9,7 @@
 <img src="assets/diagrams/banner-v2.jpg" alt="MVM Banner" width="100%"/>
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-[![Release](https://img.shields.io/github/v/release/donhauser001/Meta-Void-Model?label=Release&color=03624C)](https://github.com/donhauser001/Meta-Void-Model/releases/tag/v3.0.0)
+[![Release](https://img.shields.io/github/v/release/donhauser001/Meta-Void-Model?label=Release&color=03624C)](https://github.com/donhauser001/Meta-Void-Model/releases/tag/v3.0.1)
 [![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 **[系统架构](#-系统架构--system-architecture) | [核心公式](#-核心公式--core-formula) | [映射论类比](#-映射论类比--the-api-analogy) | [PoC模拟器](#-概念验证--proof-of-concept)**
