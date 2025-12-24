@@ -1,5 +1,7 @@
 # Macro Entities | 宏观显现体
 
+[![English](https://img.shields.io/badge/English-Version-blue)](macro-entities.en.md)
+
 > 本文档来源于 v3 完稿第七章 7.4-7.5（宏观系统的生命性、本章小结）。
 
 ---

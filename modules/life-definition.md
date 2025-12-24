@@ -1,5 +1,7 @@
 # Life Definition | 生命的重新定义
 
+[![English](https://img.shields.io/badge/English-Version-blue)](life-definition.en.md)
+
 > 本文档来源于 v3 完稿第七章 7.1-7.3（生命不是碳基特性，而是显现能力）。
 
 ---
