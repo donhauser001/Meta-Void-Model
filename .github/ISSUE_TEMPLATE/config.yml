@@ -1,9 +1,12 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 📖 阅读文档 | Read Documentation
-    url: https://github.com/donhauser001/Meta-Void-Model/blob/main/SUMMARY.md
+  - name: 📖 阅读文档 (中文) | Read Documentation
+    url: https://github.com/donhauser001/Meta-Void-Model/blob/main/zh/SUMMARY.md
     about: 在提交 Issue 前，请先阅读相关模块文档
+  - name: 📖 Documentation (English)
+    url: https://github.com/donhauser001/Meta-Void-Model/blob/main/en/SUMMARY.md
+    about: Please read relevant module documentation before submitting Issue
   - name: 📚 术语表 | Glossary
-    url: https://github.com/donhauser001/Meta-Void-Model/blob/main/assets/glossary.md
-    about: 查阅 MVM 核心术语定义
+    url: https://github.com/donhauser001/Meta-Void-Model/blob/main/zh/assets/glossary.md
+    about: 查阅 MVM 核心术语定义 | View MVM terminology definitions
 

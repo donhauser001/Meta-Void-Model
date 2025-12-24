@@ -83,10 +83,17 @@
 
 ## 05. 知识产权声明 (IP & Licensing)
 
-提交贡献即视为你同意：
+提交贡献即视为你同意以下分层授权条款：
 
-1. 你的贡献将同样遵循本项目所采用的 **[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)** 许可协议
-2. 在后续的发布版本（如 PDF 完稿或实体出版）中，你将获得相应的**贡献者署名权**
+| 贡献类型 | 适用许可 | 说明 |
+|---------|---------|------|
+| **文档类** (`.md` 文件) | [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) | 包括 `spec/`、`core/`、`engine/`、`modules/`、`lab/` 等目录下的理论文档 |
+| **代码类** (`poc/`、未来的 `libs/`) | [MIT License](https://opensource.org/licenses/MIT) | 包括模拟器、工具脚本等可执行代码 |
+| **模板/配置** (`.github/`、`archive/`) | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | 可自由使用，无需署名 |
+
+此外：
+- 所有贡献者将在发布版本（如 PDF 完稿或实体出版）及仓库中获得相应的**贡献者署名权**
+- 详细授权信息请参阅根目录 [LICENSE](../LICENSE) 文件
 
 ---
 

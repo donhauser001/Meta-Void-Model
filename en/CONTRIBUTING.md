@@ -83,10 +83,17 @@ The following categories are established:
 
 ## 05. Intellectual Property Declaration (IP & Licensing)
 
-By submitting contributions, you agree to:
+By submitting contributions, you agree to the following tiered licensing terms:
 
-1. Your contribution will likewise follow the **[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)** license adopted by this project
-2. In subsequent published versions (such as PDF manuscripts or physical publications), you will receive corresponding **contributor attribution rights**
+| Contribution Type | Applicable License | Description |
+|-------------------|-------------------|-------------|
+| **Documentation** (`.md` files) | [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) | Includes theoretical documentation under `spec/`, `core/`, `engine/`, `modules/`, `lab/` directories |
+| **Code** (`poc/`, future `libs/`) | [MIT License](https://opensource.org/licenses/MIT) | Includes simulators, utility scripts, and other executable code |
+| **Templates/Config** (`.github/`, `archive/`) | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | Free to use without attribution |
+
+Additionally:
+- All contributors will receive corresponding **contributor attribution rights** in published versions (such as PDF manuscripts or physical publications) and in the repository
+- For detailed licensing information, please refer to the [LICENSE](../LICENSE) file in the root directory
 
 ---
 

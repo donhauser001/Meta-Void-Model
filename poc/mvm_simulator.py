@@ -21,6 +21,7 @@ from typing import List, Dict, Tuple, Optional, Callable
 from enum import Enum
 import hashlib
 import json
+import warnings
 
 
 # =============================================================================
@@ -148,12 +149,36 @@ class SnapshotChain:
 
 
 @dataclass
+class PathStrategyConfig:
+    """
+    路径策略参数配置
+    
+    这些参数不是物理常数，而是模型行为的"调音旋钮"：
+    - momentum_weight: 历史惯性权重 (0-1)，值越高路径越倾向于延续历史方向
+    - noise_std: 随机扰动标准差，控制路径的随机探索程度
+    - focus_weight: 聚焦权重 (0-1)，用于 ATTENTION_FOCUSED 策略
+    - focus_noise_std: 聚焦模式下的噪声标准差
+    - search_radius: 潜能接口搜索半径
+    """
+    momentum_weight: float = 0.7        # 历史惯性权重 (用于 HISTORY_BIASED)
+    noise_std: float = 0.3              # 路径更新噪声标准差
+    random_walk_std: float = 0.5        # 随机游走标准差
+    exploratory_std: float = 1.0        # 探索模式标准差
+    focus_weight: float = 0.3           # 注意力聚焦权重
+    focus_noise_std: float = 0.1        # 聚焦模式噪声
+    search_radius: float = 2.0          # 潜能接口搜索半径
+
+
+@dataclass
 class MVMConfig:
     """
     MVM 模拟器配置
     
     用于替代字符串魔法参数，提供类型安全的配置
     """
+    # 随机种子 (用于可复现性)
+    seed: Optional[int] = None
+    
     # 潜能场配置
     field_dimensions: int = 5
     interface_count: int = 1000
@@ -161,6 +186,7 @@ class MVMConfig:
     # 意识参数配置
     path_strategy: PathStrategy = PathStrategy.HISTORY_BIASED
     initial_omega: SpectrumLevel = SpectrumLevel.OMEGA_MEDIUM
+    path_params: PathStrategyConfig = field(default_factory=PathStrategyConfig)
     
     # 模拟配置
     snapshot_count: int = 50
@@ -169,14 +195,24 @@ class MVMConfig:
     # 观察配置
     confirmation_threshold: float = 0.5
     
+    # 调试模式 (启用不变量自检)
+    debug_mode: bool = False
+    
     def to_dict(self) -> Dict:
         return {
+            "seed": self.seed,
             "field_dimensions": self.field_dimensions,
             "interface_count": self.interface_count,
             "path_strategy": self.path_strategy.value,
             "initial_omega": self.initial_omega.name,
             "snapshot_count": self.snapshot_count,
-            "confirmation_threshold": self.confirmation_threshold
+            "confirmation_threshold": self.confirmation_threshold,
+            "debug_mode": self.debug_mode,
+            "path_params": {
+                "momentum_weight": self.path_params.momentum_weight,
+                "noise_std": self.path_params.noise_std,
+                "search_radius": self.path_params.search_radius
+            }
         }
 
 
@@ -259,20 +295,29 @@ class ConsciousnessPath:
         self, 
         strategy: PathStrategy = PathStrategy.HISTORY_BIASED,
         initial_position: Optional[Tuple[float, ...]] = None,
-        dimensions: int = 5
+        dimensions: int = 5,
+        params: Optional[PathStrategyConfig] = None
     ):
         self.strategy = strategy
         self.dimensions = dimensions
         self.position = initial_position or tuple(0.0 for _ in range(dimensions))
         self.history: List[Tuple[float, ...]] = [self.position]
         self.attention_weights: Dict[str, float] = {}
+        self.params = params or PathStrategyConfig()
     
     def sample_next_position(self, field: PotentialityField) -> Tuple[float, ...]:
         """
         采样下一个位置 (θ 的动态演化)
+        
+        路径策略参数说明 (来自 PathStrategyConfig):
+        - momentum_weight: 历史惯性权重，控制 HISTORY_BIASED 策略的惯性程度
+        - noise_std: 路径更新的随机扰动标准差
+        - focus_weight: ATTENTION_FOCUSED 策略的聚焦程度
         """
+        p = self.params  # 简写
+        
         if self.strategy == PathStrategy.RANDOM:
-            delta = tuple(random.gauss(0, 0.5) for _ in range(self.dimensions))
+            delta = tuple(random.gauss(0, p.random_walk_std) for _ in range(self.dimensions))
         
         elif self.strategy == PathStrategy.HISTORY_BIASED:
             # 倾向于沿历史方向继续
@@ -282,37 +327,47 @@ class ConsciousnessPath:
                     for i in range(self.dimensions)
                 )
                 delta = tuple(
-                    m * 0.7 + random.gauss(0, 0.3)
+                    m * p.momentum_weight + random.gauss(0, p.noise_std)
                     for m in momentum
                 )
             else:
-                delta = tuple(random.gauss(0, 0.5) for _ in range(self.dimensions))
+                delta = tuple(random.gauss(0, p.random_walk_std) for _ in range(self.dimensions))
         
         elif self.strategy == PathStrategy.ATTENTION_FOCUSED:
             # 向高密度区域聚焦
-            nearby = field.query_interfaces(self.position, 2.0, SpectrumLevel.OMEGA_MEDIUM)
+            nearby = field.query_interfaces(self.position, p.search_radius, SpectrumLevel.OMEGA_MEDIUM)
             if nearby:
                 target = max(nearby, key=lambda x: x.structural_density)
                 delta = tuple(
-                    (t - p) * 0.3 + random.gauss(0, 0.1)
-                    for t, p in zip(target.coordinates, self.position)
+                    (t - p_coord) * p.focus_weight + random.gauss(0, p.focus_noise_std)
+                    for t, p_coord in zip(target.coordinates, self.position)
                 )
             else:
-                delta = tuple(random.gauss(0, 0.5) for _ in range(self.dimensions))
+                delta = tuple(random.gauss(0, p.random_walk_std) for _ in range(self.dimensions))
         
         else:  # EXPLORATORY
-            delta = tuple(random.gauss(0, 1.0) for _ in range(self.dimensions))
+            delta = tuple(random.gauss(0, p.exploratory_std) for _ in range(self.dimensions))
         
-        new_position = tuple(p + d for p, d in zip(self.position, delta))
+        new_position = tuple(p_coord + d for p_coord, d in zip(self.position, delta))
         self.position = new_position
         self.history.append(new_position)
         return new_position
     
     @property
     def path_hash(self) -> str:
-        """生成路径的哈希签名"""
-        data = str(self.history[-10:])  # 最近10步
-        return hashlib.md5(data.encode()).hexdigest()[:8]
+        """
+        生成路径的稳定哈希签名
+        
+        注意：这是一个人类可读的路径签名，用于标识相似路径，
+        并非严格的数学不变量。使用 SHA-256 确保跨环境稳定性。
+        """
+        # 取最近10步，格式化为稳定字符串
+        recent = self.history[-10:]
+        payload = ";".join(
+            ",".join(f"{x:.6f}" for x in pos) 
+            for pos in recent
+        )
+        return hashlib.sha256(payload.encode()).hexdigest()[:8]
 
 
 class SpectrumOmega:
@@ -485,6 +540,14 @@ class MVMSimulator:
     支持两种初始化方式:
     1. MVMSimulator(config=MVMConfig(...))  # 推荐
     2. MVMSimulator(path_strategy=..., initial_omega=...)  # 向后兼容
+    
+    可复现性:
+        设置 config.seed 可确保相同参数下的实验可复现。
+        运行报告中会包含使用的 seed 值。
+    
+    调试模式:
+        设置 config.debug_mode=True 可启用不变量自检，
+        在快照生成过程中验证数据一致性。
     """
     
     def __init__(
@@ -507,13 +570,20 @@ class MVMSimulator:
                 initial_omega=initial_omega
             )
         
+        # 设置随机种子以确保可复现性
+        self._actual_seed: Optional[int] = None
+        if self.config.seed is not None:
+            self._actual_seed = self.config.seed
+            random.seed(self._actual_seed)
+        
         self.field = PotentialityField(
             self.config.field_dimensions, 
             self.config.interface_count
         )
         self.path = ConsciousnessPath(
             self.config.path_strategy, 
-            dimensions=self.config.field_dimensions
+            dimensions=self.config.field_dimensions,
+            params=self.config.path_params
         )
         self.spectrum = SpectrumOmega(self.config.initial_omega)
         self.observer = Observation(self.config.confirmation_threshold)
@@ -524,7 +594,59 @@ class MVMSimulator:
     def run(self, snapshot_count: Optional[int] = None) -> SnapshotChain:
         """运行模拟"""
         count = snapshot_count or self.config.snapshot_count
-        return self.operator.generate_chain(count)
+        chain = self.operator.generate_chain(count)
+        
+        # 调试模式：执行不变量自检
+        if self.config.debug_mode:
+            self._validate_invariants(chain)
+        
+        return chain
+    
+    def _validate_invariants(self, chain: SnapshotChain) -> None:
+        """
+        不变量自检 (仅在 debug_mode=True 时执行)
+        
+        检查模拟结果的数据一致性：
+        1. temporal_index 必须严格递增
+        2. spatial 坐标维度为 3 且不是 NaN
+        3. omega_level 始终在有效枚举集合内
+        """
+        if not chain.snapshots:
+            return
+        
+        prev_temporal = -1
+        valid_omega_levels = set(SpectrumLevel)
+        
+        for i, snapshot in enumerate(chain.snapshots):
+            # 检查 1: temporal_index 严格递增
+            if snapshot.temporal_index <= prev_temporal:
+                warnings.warn(
+                    f"[MVM Debug] Invariant violation at snapshot {i}: "
+                    f"temporal_index {snapshot.temporal_index} <= previous {prev_temporal}"
+                )
+            prev_temporal = snapshot.temporal_index
+            
+            # 检查 2: spatial 坐标有效性
+            if len(snapshot.spatial) != 3:
+                warnings.warn(
+                    f"[MVM Debug] Invariant violation at snapshot {i}: "
+                    f"spatial dimension is {len(snapshot.spatial)}, expected 3"
+                )
+            
+            for coord in snapshot.spatial:
+                if math.isnan(coord) or math.isinf(coord):
+                    warnings.warn(
+                        f"[MVM Debug] Invariant violation at snapshot {i}: "
+                        f"spatial contains NaN/Inf: {snapshot.spatial}"
+                    )
+                    break
+            
+            # 检查 3: omega_level 有效性
+            if snapshot.omega_level not in valid_omega_levels:
+                warnings.warn(
+                    f"[MVM Debug] Invariant violation at snapshot {i}: "
+                    f"invalid omega_level: {snapshot.omega_level}"
+                )
     
     def report(self, chain: SnapshotChain) -> Dict:
         """生成报告"""
@@ -539,6 +661,7 @@ class MVMSimulator:
         return {
             "chain_id": chain.chain_id,
             "config": self.config.to_dict(),
+            "seed_used": self._actual_seed,
             "total_snapshots": chain.length,
             "temporal_span": chain.temporal_span,
             "omega_distribution": omega_distribution,
@@ -565,24 +688,31 @@ def main():
     print("=" * 60)
     print()
     
-    # 方式1: 使用 MVMConfig (推荐)
+    # 使用 MVMConfig (推荐)
+    # 设置 seed 可确保相同参数下的实验可复现
+    # 设置 debug_mode=True 可启用不变量自检
     config = MVMConfig(
+        seed=42,  # 设置随机种子以确保可复现性
         field_dimensions=5,
         interface_count=1000,
         path_strategy=PathStrategy.HISTORY_BIASED,
         initial_omega=SpectrumLevel.OMEGA_MEDIUM,
-        snapshot_count=50
+        snapshot_count=50,
+        debug_mode=True  # 启用调试模式，验证数据一致性
     )
     simulator = MVMSimulator(config=config)
     
     print("[1] 初始化潜能场 (ρ_S)...")
     print(f"    - 维度: {simulator.field.dimensions}")
     print(f"    - 潜能接口数: {len(simulator.field.interfaces)}")
+    print(f"    - 随机种子: {config.seed} (可复现性已启用)")
     print()
     
     print("[2] 配置意识参数...")
     print(f"    - 路径策略 (θ): {simulator.path.strategy.value}")
     print(f"    - 频谱层级 (ω): {simulator.spectrum.level.name}")
+    print(f"    - 路径惯性权重: {config.path_params.momentum_weight}")
+    print(f"    - 调试模式: {'启用' if config.debug_mode else '禁用'}")
     print()
     
     print("[3] 运行显现过程...")

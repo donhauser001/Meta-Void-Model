@@ -3,7 +3,7 @@
 [![English](https://img.shields.io/badge/English-Version-blue)](_sidebar.en.md)
 
 * **入门**
-  * [首页](/)
+  * [首页](README.md)
   * [TL;DR 快速了解](README.md#tldr--10-秒入门)
   
 * **📋 系统规范 (spec/)**

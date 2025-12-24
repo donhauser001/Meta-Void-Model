@@ -1,8 +1,45 @@
 # System Glossary
 
-[![中文](https://img.shields.io/badge/中文-版本-blue)](../zh/glossary.md)
+[![中文](https://img.shields.io/badge/中文-版本-blue)](../../zh/assets/glossary.md)
 
 > **MVM Core Concept Index** — Bidirectional Link Support
+
+---
+
+## Naming Conventions
+
+To minimize terminological confusion, the following standardized naming correspondences are established for MVM:
+
+### Theory Overall Name
+
+| Language | Formal Name | Abbreviation |
+|:--------:|-------------|:------------:|
+| **English** | Meta-Void-Model | MVM |
+| **Chinese** | 宇宙元模型 / 元虚空模型 | — |
+
+### Core Terminology Correspondence
+
+| English Term | Chinese Term | Symbol | Description |
+|--------------|--------------|:------:|-------------|
+| Meta-Void | 元虚空 | ρ_S | Collective term for Non-existence tension structure |
+| Non-existence | 非存在 | — | Structured potentiality state, not "Nothingness" |
+| Manifestation | 显现 | M | Mapping process from potentiality to reality |
+| Snapshot | 快照 | S | Discrete sampling unit of five-dimensional reality |
+| Spectrum | 频谱 | ω | "Resolution" parameter of consciousness |
+| Path | 路径 | θ | "Access position" parameter of consciousness |
+| Observation | 观察 | O | Trigger for confirmation and state lock |
+| Potentiality Field | 潜能场 | — | Structural distribution within Meta-Void |
+| Tension | 张力 | T | Measure of manifestation intensity |
+
+### Perspectives and Paradigms
+
+| Name | Nature | Description |
+|------|:------:|-------------|
+| **Non-existence Cosmology** | Perspective | Viewing universe from "not yet manifested" |
+| **Manifestation Cosmology** | Perspective | Viewing universe from "being rendered" |
+| **Compositionism** | Contrasting Paradigm | Traditional "particle assembly" cosmology |
+
+> ⚠️ **Note:** "Non-existence Cosmology" and "Manifestation Cosmology" are two complementary perspectives for observing the same theory, not two independent models.
 
 ---
 
