@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVM Snapshot Chain Visualizer</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(3, 98, 76, 0.1);
+            border-bottom: 1px solid rgba(3, 98, 76, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            color: #03624C;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header .formula {
+            font-family: 'Courier New', monospace;
+            color: #00cf3f;
+            font-size: 1.2rem;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 1rem;
+            padding: 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .controls {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .controls h3 {
+            color: #03624C;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        .control-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .control-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+        
+        .control-group select,
+        .control-group input[type="range"] {
+            width: 100%;
+            padding: 0.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            color: #e0e0e0;
+        }
+        
+        .control-group input[type="range"] {
+            -webkit-appearance: none;
+            height: 6px;
+            background: rgba(3, 98, 76, 0.3);
+            border-radius: 3px;
+        }
+        
+        .control-group input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: #03624C;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .value-display {
+            text-align: right;
+            font-family: monospace;
+            color: #00cf3f;
+            font-size: 0.9rem;
+        }
+        
+        button {
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #03624C, #026d55);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(3, 98, 76, 0.4);
+        }
+        
+        .visualization {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        #canvas {
+            width: 100%;
+            height: 500px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+        
+        .stat-card .value {
+            font-size: 1.5rem;
+            color: #00cf3f;
+            font-weight: bold;
+        }
+        
+        .stat-card .label {
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 0.3rem;
+        }
+        
+        .snapshot-detail {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .snapshot-detail pre {
+            white-space: pre-wrap;
+            color: #aaa;
+        }
+        
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+        }
+        
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .omega-low { background: #4a9eff; }
+        .omega-medium { background: #00cf3f; }
+        .omega-high { background: #ff6b6b; }
+        
+        @media (max-width: 800px) {
+            .container { grid-template-columns: 1fr; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🧪 MVM Snapshot Chain Visualizer</h1>
+        <div class="formula">S := M(ρ_S ⊗ (ω, θ, O))</div>
+    </div>
+    
+    <div class="container">
+        <div class="controls">
+            <h3>⚙️ 模拟参数</h3>
+            
+            <div class="control-group">
+                <label>意识路径策略 (θ)</label>
+                <select id="pathStrategy">
+                    <option value="random">随机游走</option>
+                    <option value="history" selected>历史偏好</option>
+                    <option value="focus">注意力聚焦</option>
+                    <option value="explore">探索扩散</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>意识频谱 (ω)</label>
+                <select id="omegaLevel">
+                    <option value="low">ωₗ 低频 - 物质层</option>
+                    <option value="medium" selected>ωₘ 中频 - 信息层</option>
+                    <option value="high">ωₕ 高频 - 意义层</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <label>快照数量</label>
+                <input type="range" id="snapshotCount" min="10" max="200" value="50">
+                <div class="value-display" id="snapshotCountValue">50</div>
+            </div>
+            
+            <div class="control-group">
+                <label>张力扰动强度</label>
+                <input type="range" id="tensionStrength" min="0" max="100" value="50">
+                <div class="value-display" id="tensionStrengthValue">0.50</div>
+            </div>
+            
+            <button onclick="runSimulation()">▶️ 运行显现模拟</button>
+            
+            <div class="snapshot-detail">
+                <pre id="detailOutput">点击快照节点查看详情...</pre>
+            </div>
+        </div>
+        
+        <div class="visualization">
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-dot omega-low"></div>
+                    <span>ωₗ 低频</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot omega-medium"></div>
+                    <span>ωₘ 中频</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot omega-high"></div>
+                    <span>ωₕ 高频</span>
+                </div>
+            </div>
+            
+            <svg id="canvas"></svg>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="value" id="statSnapshots">0</div>
+                    <div class="label">快照数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value" id="statTension">0.00</div>
+                    <div class="label">最终张力</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value" id="statSuccessRate">0%</div>
+                    <div class="label">确认率</div>
+                </div>
+                <div class="stat-card">
+                    <div class="value" id="statPathLength">0</div>
+                    <div class="label">路径长度</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // ========================================
+        // MVM 简化模拟器 (JavaScript 版本)
+        // ========================================
+        
+        class MVMSimulator {
+            constructor(config) {
+                this.config = config;
+                this.snapshots = [];
+                this.tension = 1.0;
+                this.pathHistory = [[0, 0]];
+                this.observationAttempts = 0;
+            }
+            
+            run() {
+                this.snapshots = [];
+                this.tension = 1.0;
+                this.pathHistory = [[0, 0]];
+                this.observationAttempts = 0;
+                
+                let attempts = 0;
+                const maxAttempts = this.config.snapshotCount * 3;
+                
+                while (this.snapshots.length < this.config.snapshotCount && attempts < maxAttempts) {
+                    attempts++;
+                    const snapshot = this.generateSnapshot();
+                    if (snapshot) {
+                        this.snapshots.push(snapshot);
+                    }
+                }
+                
+                return {
+                    snapshots: this.snapshots,
+                    finalTension: this.tension,
+                    pathLength: this.pathHistory.length,
+                    successRate: this.snapshots.length / Math.max(1, this.observationAttempts)
+                };
+            }
+            
+            generateSnapshot() {
+                // θ 路径采样
+                const lastPos = this.pathHistory[this.pathHistory.length - 1];
+                let newPos;
+                
+                switch (this.config.pathStrategy) {
+                    case 'random':
+                        newPos = [
+                            lastPos[0] + (Math.random() - 0.5) * 2,
+                            lastPos[1] + (Math.random() - 0.5) * 2
+                        ];
+                        break;
+                    case 'history':
+                        if (this.pathHistory.length >= 2) {
+                            const prev = this.pathHistory[this.pathHistory.length - 2];
+                            const momentum = [lastPos[0] - prev[0], lastPos[1] - prev[1]];
+                            newPos = [
+                                lastPos[0] + momentum[0] * 0.7 + (Math.random() - 0.5) * 0.6,
+                                lastPos[1] + momentum[1] * 0.7 + (Math.random() - 0.5) * 0.6
+                            ];
+                        } else {
+                            newPos = [
+                                lastPos[0] + (Math.random() - 0.5) * 2,
+                                lastPos[1] + (Math.random() - 0.5) * 2
+                            ];
+                        }
+                        break;
+                    case 'focus':
+                        // 向中心聚焦
+                        newPos = [
+                            lastPos[0] * 0.95 + (Math.random() - 0.5) * 0.5,
+                            lastPos[1] * 0.95 + (Math.random() - 0.5) * 0.5
+                        ];
+                        break;
+                    case 'explore':
+                        newPos = [
+                            lastPos[0] + (Math.random() - 0.5) * 4,
+                            lastPos[1] + (Math.random() - 0.5) * 4
+                        ];
+                        break;
+                }
+                
+                this.pathHistory.push(newPos);
+                
+                // O 观察确认
+                this.observationAttempts++;
+                const density = Math.random() * 2;
+                const omegaFactor = this.config.omegaLevel === 'high' ? 0.8 : 
+                                    this.config.omegaLevel === 'medium' ? 0.5 : 0.3;
+                const confirmProb = density * 0.4 + omegaFactor * 0.4 + 
+                                   Math.min(1, this.pathHistory.length / 100) * 0.2;
+                
+                if (Math.random() > confirmProb) {
+                    // 前震：扰动张力场
+                    this.tension *= 1 + this.config.tensionStrength * (Math.random() - 0.5) * 0.1;
+                    this.tension = Math.max(0.1, Math.min(3, this.tension));
+                    return null;
+                }
+                
+                // 生成快照
+                return {
+                    id: Math.random().toString(36).substr(2, 8),
+                    t: this.snapshots.length + 1,
+                    x: newPos[0],
+                    y: newPos[1],
+                    omega: this.config.omegaLevel,
+                    density: density,
+                    tension: this.tension
+                };
+            }
+        }
+        
+        // ========================================
+        // D3.js 可视化
+        // ========================================
+        
+        let currentResult = null;
+        
+        function runSimulation() {
+            const config = {
+                snapshotCount: parseInt(document.getElementById('snapshotCount').value),
+                pathStrategy: document.getElementById('pathStrategy').value,
+                omegaLevel: document.getElementById('omegaLevel').value,
+                tensionStrength: parseInt(document.getElementById('tensionStrength').value) / 100
+            };
+            
+            const sim = new MVMSimulator(config);
+            currentResult = sim.run();
+            
+            // 更新统计
+            document.getElementById('statSnapshots').textContent = currentResult.snapshots.length;
+            document.getElementById('statTension').textContent = currentResult.finalTension.toFixed(2);
+            document.getElementById('statSuccessRate').textContent = 
+                (currentResult.successRate * 100).toFixed(0) + '%';
+            document.getElementById('statPathLength').textContent = currentResult.pathLength;
+            
+            // 绘制可视化
+            drawVisualization(currentResult);
+        }
+        
+        function drawVisualization(result) {
+            const svg = d3.select('#canvas');
+            svg.selectAll('*').remove();
+            
+            const width = svg.node().parentElement.clientWidth;
+            const height = 500;
+            
+            svg.attr('width', width).attr('height', height);
+            
+            if (result.snapshots.length === 0) return;
+            
+            // 计算范围
+            const xExtent = d3.extent(result.snapshots, d => d.x);
+            const yExtent = d3.extent(result.snapshots, d => d.y);
+            
+            const xScale = d3.scaleLinear()
+                .domain([xExtent[0] - 1, xExtent[1] + 1])
+                .range([50, width - 50]);
+            
+            const yScale = d3.scaleLinear()
+                .domain([yExtent[0] - 1, yExtent[1] + 1])
+                .range([height - 50, 50]);
+            
+            // 颜色映射
+            const colorMap = {
+                'low': '#4a9eff',
+                'medium': '#00cf3f',
+                'high': '#ff6b6b'
+            };
+            
+            // 绘制连线
+            const line = d3.line()
+                .x(d => xScale(d.x))
+                .y(d => yScale(d.y))
+                .curve(d3.curveCardinal.tension(0.5));
+            
+            svg.append('path')
+                .datum(result.snapshots)
+                .attr('fill', 'none')
+                .attr('stroke', 'rgba(255, 255, 255, 0.2)')
+                .attr('stroke-width', 1)
+                .attr('d', line);
+            
+            // 绘制节点
+            svg.selectAll('circle')
+                .data(result.snapshots)
+                .enter()
+                .append('circle')
+                .attr('cx', d => xScale(d.x))
+                .attr('cy', d => yScale(d.y))
+                .attr('r', d => 4 + d.density * 3)
+                .attr('fill', d => colorMap[d.omega])
+                .attr('opacity', 0.8)
+                .attr('stroke', '#fff')
+                .attr('stroke-width', 1)
+                .style('cursor', 'pointer')
+                .on('mouseover', function(event, d) {
+                    d3.select(this)
+                        .transition()
+                        .duration(200)
+                        .attr('r', (4 + d.density * 3) * 1.5)
+                        .attr('opacity', 1);
+                })
+                .on('mouseout', function(event, d) {
+                    d3.select(this)
+                        .transition()
+                        .duration(200)
+                        .attr('r', 4 + d.density * 3)
+                        .attr('opacity', 0.8);
+                })
+                .on('click', function(event, d) {
+                    showDetail(d);
+                });
+            
+            // 绘制时间标签
+            svg.selectAll('text')
+                .data(result.snapshots.filter((d, i) => i % 5 === 0))
+                .enter()
+                .append('text')
+                .attr('x', d => xScale(d.x))
+                .attr('y', d => yScale(d.y) - 15)
+                .attr('text-anchor', 'middle')
+                .attr('fill', '#888')
+                .attr('font-size', '10px')
+                .text(d => `t=${d.t}`);
+        }
+        
+        function showDetail(snapshot) {
+            const detail = `{
+  "snapshot_id": "${snapshot.id}",
+  "temporal_index": ${snapshot.t},
+  "spatial": {
+    "x": ${snapshot.x.toFixed(4)},
+    "y": ${snapshot.y.toFixed(4)}
+  },
+  "omega": "${snapshot.omega}",
+  "density": ${snapshot.density.toFixed(4)},
+  "field_tension": ${snapshot.tension.toFixed(4)}
+}`;
+            document.getElementById('detailOutput').textContent = detail;
+        }
+        
+        // 滑块值更新
+        document.getElementById('snapshotCount').addEventListener('input', function() {
+            document.getElementById('snapshotCountValue').textContent = this.value;
+        });
+        
+        document.getElementById('tensionStrength').addEventListener('input', function() {
+            document.getElementById('tensionStrengthValue').textContent = (this.value / 100).toFixed(2);
+        });
+        
+        // 初始运行
+        runSimulation();
+    </script>
+</body>
+</html>
+
