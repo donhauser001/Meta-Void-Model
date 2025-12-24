@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>Meta-Void-Model | 元虚空模型</title>
+    <meta name="description" content="从意识维度出发的非存在宇宙观">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    
+    <!-- Docsify Theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --theme-color: #03624C;
+            --theme-color-secondary: #00cf3f;
+            
+            --base-background-color: #0a0a0f;
+            --cover-background-color: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+            
+            --sidebar-background: #0f0f15;
+            --sidebar-nav-link-color: #aaa;
+            --sidebar-nav-link-color--active: #00cf3f;
+            
+            --heading-color: #03624C;
+            --code-theme-background: #1a1a2e;
+            --code-inline-background: rgba(3, 98, 76, 0.2);
+            --code-inline-color: #00cf3f;
+            
+            --blockquote-border-color: #03624C;
+            --link-color: #00cf3f;
+        }
+        
+        /* Cover Page */
+        .cover-main {
+            background: var(--cover-background-color) !important;
+        }
+        
+        .cover-main h1 {
+            color: #03624C !important;
+        }
+        
+        .cover-main .btn {
+            background: #03624C !important;
+            border: 2px solid #03624C !important;
+        }
+        
+        /* Formula styling */
+        .markdown-section code {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+        }
+        
+        /* Table styling */
+        .markdown-section table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .markdown-section table th {
+            background: #03624C;
+            color: white;
+            padding: 0.8em;
+        }
+        
+        .markdown-section table td {
+            padding: 0.6em;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Sidebar Logo */
+        .sidebar .app-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #03624C;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">加载中...</div>
+    
+    <script>
+        window.$docsify = {
+            name: 'MVM',
+            repo: 'https://github.com/donhauser001/Meta-Void-Model',
+            
+            // 加载侧边栏
+            loadSidebar: true,
+            
+            // 子目录最大层级
+            subMaxLevel: 3,
+            
+            // 搜索插件配置
+            search: {
+                placeholder: '搜索...',
+                noData: '没有找到结果',
+                paths: 'auto',
+                depth: 3
+            },
+            
+            // 封面
+            coverpage: true,
+            
+            // 主题色
+            themeColor: '#03624C',
+            
+            // 自动跳转到页面顶部
+            auto2top: true,
+            
+            // Tab 配置
+            tabs: {
+                persist: true,
+                sync: true
+            },
+            
+            // 分页导航
+            pagination: {
+                previousText: '上一章',
+                nextText: '下一章'
+            }
+        };
+    </script>
+    
+    <!-- Docsify Core -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+    
+    <!-- Plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+    
+    <!-- Syntax Highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-latex.min.js"></script>
+    
+    <!-- Math Support -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+</body>
+</html>
+
