@@ -1,5 +1,3 @@
-<!-- docs/_coverpage.md -->
-
 ![logo](assets/diagrams/banner-v2.jpg)
 
 # Meta-Void-Model
@@ -11,6 +9,6 @@
 - 可执行的 POC 模拟器 + 公理化附录
 
 [GitHub](https://github.com/donhauser001/Meta-Void-Model)
-[开始阅读](#tldr--10-秒入门)
+[开始阅读](README.md)
 [Release v3.0.0](https://github.com/donhauser001/Meta-Void-Model/releases/tag/v3.0.0)
 
