@@ -9,6 +9,7 @@
 <img src="assets/diagrams/banner-v2.jpg" alt="Meta-Void-Model Banner" width="100%"/>
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+[![Release](https://img.shields.io/github/v/release/donhauser001/Meta-Void-Model?label=Release&color=03624C)](https://github.com/donhauser001/Meta-Void-Model/releases/tag/v3.0.0)
 
 </div>
 
@@ -148,6 +149,7 @@ MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 | 🧪 `poc/` | 概念验证模拟器 | [→ mvm_simulator.py](poc/mvm_simulator.py) |
 | 📖 **完整索引** | SUMMARY | [→ 系统导航](SUMMARY.md) |
 | 📁 **原始文稿** | 完整原著存档 | [→ archive/](archive/) |
+| 🏷️ **正式发布** | v3.0.0 (PDF/HTML/DOCX) | [→ Releases](https://github.com/donhauser001/Meta-Void-Model/releases/tag/v3.0.0) |
 
 > 💡 **提示**：每个模块文件末尾都包含 `📚 Research & Philosophical Notes` 章节，保留了原著 20 万字中的哲学思辨、直觉类比和跨学科对话。
 
