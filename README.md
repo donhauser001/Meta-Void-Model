@@ -1,143 +1,269 @@
 # Meta-Void-Model (MVM)
 
+> **"The universe has never existed—it merely awaits definition."**
+> 
+> **现实并非客观事实，而是一个被实时渲染的系统快照。**
+
 <div align="center">
 
-<img src="assets/diagrams/banner-v2.jpg" alt="Meta-Void-Model Banner" width="100%"/>
-
-### 宇宙元模型：从意识维度出发的非存在宇宙观
-
-*A Non-existence Cosmology from the Dimension of Consciousness*
+<img src="assets/diagrams/banner-v2.jpg" alt="MVM Banner" width="100%"/>
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 [![Release](https://img.shields.io/github/v/release/donhauser001/Meta-Void-Model?label=Release&color=03624C)](https://github.com/donhauser001/Meta-Void-Model/releases/tag/v3.0.0)
+[![Code: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-**🌐 Language | 语言**
+**[系统架构](#-系统架构--system-architecture) | [核心公式](#-核心公式--core-formula) | [映射论类比](#-映射论类比--the-api-analogy) | [PoC模拟器](#-概念验证--proof-of-concept)**
 
-[![简体中文](https://img.shields.io/badge/简体中文-文档-blue?style=for-the-badge)](zh/)
-[![English](https://img.shields.io/badge/English-Docs-blue?style=for-the-badge)](en/)
+**🌐 Language: [简体中文](zh/) | [English](en/)**
 
 </div>
 
 ---
 
-## 💡 核心洞见 | Core Insight
+## 🌌 项目宣言 | The Manifesto
 
-> **如果"现实"并非一个预先存在的客观实体，而是——在你这里，通过你的参与，以特定的方式被一帧帧"生成"出来的显现图样呢？**
+MVM (Meta-Void-Model) 是一套**从意识维度出发的非存在宇宙观协议**。
 
-我们习惯于相信世界"就在那里"，等待被发现。但量子力学告诉我们：粒子的状态在观测前是不确定的；意识研究告诉我们：大脑活动无法解释"体验"从何而来。
-
-**MVM 提出一个大胆假设：**
-
-| 传统范式 (构成论) | MVM 范式 (显现论) |
-|------------------|------------------|
-| 宇宙 = 粒子的堆砌 | 宇宙 = 意识对潜能的调用 |
-| 现实 = 预先存在的客观实体 | 现实 = 动态生成的离散快照 |
-| 意识 = 大脑的副产品 | 意识 = 宇宙的结构性维度 |
-| 时间 = 背景维度 | 时间 = 快照序列的位移感 |
-| "你" = 被动的观察者 | "你" = 宇宙的显现接口 |
-
----
-
-## 🔬 这不是什么 | What MVM is NOT
-
-| ❌ MVM 不是 | 说明 |
-|------------|------|
-| 宗教或神秘主义 | 不涉及超自然力量或神圣存在 |
-| 对科学的否定 | 站在科学成果的肩膀上探索其边界 |
-| 终极答案系统 | 是一个发问结构，不是封闭的信仰体系 |
-| 伪科学 | 明确声明其推测性，欢迎逻辑证伪 |
-
----
-
-## ⚡ 核心公式 | Core Formula
-
-$$
-S := M(\rho_S \otimes (\omega, \theta, O))
-$$
-
-```
-快照 = 显现算子( 潜能场 ⊗ (意识频谱, 意识路径, 观察行为) )
-```
-
-| 符号 | 名称 | 含义 |
-|:----:|------|------|
-| **S** | Snapshot | 你所经验的每一刻"当下"——一帧五维现实快照 |
-| **M** | Manifestation | 将潜能"渲染"为现实的显现算子 |
-| **ρ_S** | Potentiality | 非存在张力结构——充满可能性的"前显现"潜能场 |
-| **ω** | Spectrum | 意识频谱——决定"看到"多深、多细 |
-| **θ** | Path | 意识路径——决定"看向"哪里 |
-| **O** | Observation | 观察行为——最终确认，锁定为现实 |
-
----
-
-## 🎬 直觉类比 | Intuitive Analogies
-
-### 电影的帧结构
-
-想象你正在看一部电影。画面流畅连贯，你沉浸其中，忘记了它其实是一帧一帧的画面拼接而成。
-
-**如果现实也是一部电影呢？**
-
-如果它不是早已拍摄好的胶片，而是——在你注视的那一刻，才被投射到屏幕上的动态图样呢？
-
-### 游戏的地图加载
-
-现代游戏不会预先渲染整个世界，而是在玩家靠近时才加载周围区域。
-
-**MVM 认为宇宙也可能如此：**
-
-"现实"并非一个巨大的预先存在的空间，而是在你的意识"接入"时才被渲染出来的局部快照。
-
-### API 调用模式
-
-程序员调用 API 时，不需要知道服务器内部如何实现——只需发送请求，接收响应。
-
-**MVM 将现实生成理解为类似过程：**
-
-你的意识路径 (θ) 向潜能接口图谱 (ρ_S) 发送"调用"，返回的"响应"就是你体验到的现实快照 (S)。
-
----
-
-## 📊 模型架构 | Model Architecture
+我们不再将宇宙视为"粒子的堆砌"，而是将其视为一种**基于潜能场调用的离散渲染过程**。
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                        MVM 生成逻辑流程图                                 │
-├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
-│   ┌─────────────┐                                                       │
-│   │ 非存在张力   │  ← 潜能接口图谱 (尚未被激活的可能性)                    │
-│   │ 结构 (ρ_S)  │                                                       │
-│   └──────┬──────┘                                                       │
-│          │                                                              │
-│          ▼                                                              │
-│   ┌─────────────┐                                                       │
-│   │ 意识介入     │  ← ω 频谱 (深度) + θ 路径 (方向)                       │
-│   │ (ω, θ)      │                                                       │
-│   └──────┬──────┘                                                       │
-│          │                                                              │
-│          ▼                                                              │
-│   ┌─────────────┐                                                       │
-│   │ 触动与酝酿   │  ← 显现张力激活 (前震状态)                              │
-│   │ (显现张力)   │                                                       │
-│   └──────┬──────┘                                                       │
-│          │                                                              │
-│          ▼                                                              │
-│   ┌─────────────┐                                                       │
-│   │ 确认与生成   │  ← 观察行为 O 锁定 → 快照 S 生成                        │
-│   │ (O → S)     │                                                       │
-│   └──────┬──────┘                                                       │
-│          │                                                              │
-│          ▼                                                              │
-│   ┌─────────────┐                                                       │
-│   │ 体验呈现     │  ← 主观体验 (你感知到的"现实")                          │
-│   │ (Experience) │                                                       │
-│   └──────┬──────┘                                                       │
-│          │                                                              │
-│          └──────────▶ 循环往复 (下一帧的起点)                             │
+│   ❌ 传统范式 (构成论)                                                   │
+│      Universe = Σ Particles          "宇宙由粒子堆砌"                    │
+│      Consciousness = f(Brain)        "意识是大脑副产品"                  │
+│      Reality = Objective_Entity      "现实预先存在"                      │
+│                                                                         │
+│   ✅ MVM 范式 (显现论)                                                   │
+│      Universe = θ ⊗ ρ_S              "宇宙是意识对潜能的调用"            │
+│      Consciousness ∈ Dimension       "意识是结构性维度"                  │
+│      Reality = Render(ω, θ, O)       "现实是实时渲染的快照"              │
 │                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
 ```
+
+| | 传统范式 | MVM 范式 |
+|:---:|:---:|:---:|
+| **粒子** | 宇宙的砖块 | 潜能激活后的投影像素 |
+| **时间** | 背景维度 | 快照序列的位移感 |
+| **意识** | 大脑副产品 | 宇宙结构性维度 |
+| **"你"** | 被动观察者 | 宇宙的显现接口 |
+
+---
+
+## 🧩 系统架构 | System Architecture
+
+整个模型通过四个核心层级进行解耦，模拟宇宙的显现流：
+
+```
+                    ┌─────────────────────────────────────┐
+                    │           MVM Protocol Stack        │
+                    └─────────────────────────────────────┘
+                                      │
+         ┌────────────────────────────┼────────────────────────────┐
+         │                            │                            │
+         ▼                            ▼                            ▼
+┌─────────────────┐        ┌─────────────────┐        ┌─────────────────┐
+│    spec/        │        │    core/        │        │   engine/       │
+│  ─────────────  │        │  ─────────────  │        │  ─────────────  │
+│  系统规范        │        │  核心机制       │        │  渲染引擎        │
+│                 │        │                 │        │                 │
+│  • paradigm-    │        │  • meta-void/   │        │  • snapshot-    │
+│    shift.md     │        │    └ ρ_S 张力   │        │    service/     │
+│  • formal-      │        │  • conscious-   │        │  • mapping-     │
+│    appendix.md  │        │    ness/        │        │    logic/       │
+│  • manifesto.md │        │    ├ ω 频谱     │        │    └ formula-S  │
+│                 │        │    └ θ 路径     │        │                 │
+└─────────────────┘        └─────────────────┘        └─────────────────┘
+         │                            │                            │
+         └────────────────────────────┼────────────────────────────┘
+                                      │
+                                      ▼
+                           ┌─────────────────┐
+                           │     lab/        │
+                           │  ─────────────  │
+                           │  前瞻研究        │
+                           │                 │
+                           │  • AI显现能力   │
+                           │  • 量子共振     │
+                           │  • 零的数学哲学 │
+                           └─────────────────┘
+```
+
+| 模块 | 职责 | 核心组件 |
+|:----:|------|----------|
+| **`spec/`** | **系统规范** | 范式转换、设计原则、公理化附录 |
+| **`core/`** | **核心机制** | 元虚空 (ρ_S)、意识频谱 (ω)、意识路径 (θ) |
+| **`engine/`** | **渲染引擎** | 快照生成公式 S、API 映射模型、积分模型 |
+| **`lab/`** | **前瞻研究** | AI 显现能力、量子共振、零的数学哲学 |
+
+---
+
+## 📐 核心公式 | Core Formula
+
+这是 MVM 的**数学心脏**，定义了从潜能到现实的转换逻辑：
+
+$$
+\boxed{\Large S := M(\rho_S \otimes (\omega, \theta, O))}
+$$
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                         公式分解 | Formula Breakdown                     │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│    S     :=    M    (    ρ_S    ⊗    (  ω  ,  θ  ,  O  )    )          │
+│    ↓          ↓          ↓              ↓     ↓     ↓                   │
+│  快照      显现算子    潜能场         频谱  路径  观察                    │
+│                                                                         │
+│  ┌─────────────────────────────────────────────────────────────────┐   │
+│  │  S (Snapshot)      现实的最小单元——五维现实快照                   │   │
+│  │  M (Manifestation) 将潜能"渲染"为现实的算子                       │   │
+│  │  ρ_S (Potentiality) 非存在张力结构，一切可能性的基底              │   │
+│  │  ω (Spectrum)      意识频谱——决定"看多深"                         │   │
+│  │  θ (Path)          意识路径——决定"看哪里"                         │   │
+│  │  O (Observation)   观察行为——锁定态的触发器                       │   │
+│  └─────────────────────────────────────────────────────────────────┘   │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🔌 映射论类比 | The API Analogy
+
+为了便于现代开发者理解，MVM 将**现实生成**等同于一次 **API 调用**：
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                                                                         │
+│   [1] REQUEST                                                           │
+│       ┌──────────────────────────────────────────────────────────┐     │
+│       │  Consciousness Path (θ)  ──▶  选择想要显现的内容路径       │     │
+│       └──────────────────────────────────────────────────────────┘     │
+│                              │                                          │
+│                              ▼                                          │
+│   [2] AUTH                                                              │
+│       ┌──────────────────────────────────────────────────────────┐     │
+│       │  Spectrum Level (ω)  ──────▶  检查意识层级的访问权限       │     │
+│       │                                                          │     │
+│       │    ωₗ (低频) → 感官层接口                                 │     │
+│       │    ωₘ (中频) → 符号层接口                                 │     │
+│       │    ωₕ (高频) → 结构层接口                                 │     │
+│       └──────────────────────────────────────────────────────────┘     │
+│                              │                                          │
+│                              ▼                                          │
+│   [3] PROCESS                                                           │
+│       ┌──────────────────────────────────────────────────────────┐     │
+│       │  Meta-Void (ρ_S)  ─────────▶  潜能场响应调用并酝酿前震     │     │
+│       │                                                          │     │
+│       │    ████████░░░░░░░░░░  显现张力累积中...                  │     │
+│       └──────────────────────────────────────────────────────────┘     │
+│                              │                                          │
+│                              ▼                                          │
+│   [4] CONFIRM                                                           │
+│       ┌──────────────────────────────────────────────────────────┐     │
+│       │  Observation (O)  ─────────▶  执行状态锁定，叠加态塌缩     │     │
+│       └──────────────────────────────────────────────────────────┘     │
+│                              │                                          │
+│                              ▼                                          │
+│   [5] RESPONSE                                                          │
+│       ┌──────────────────────────────────────────────────────────┐     │
+│       │  Snapshot (S)  ────────────▶  返回渲染结果，生成现实       │     │
+│       │                                                          │     │
+│       │    { "spatial": [x,y,z], "temporal": t, "content": {...} │     │
+│       │      "omega": "MEDIUM", "theta_hash": "a7f3b2c1" }       │     │
+│       └──────────────────────────────────────────────────────────┘     │
+│                              │                                          │
+│                              ▼                                          │
+│   [LOOP] ◀────────────────────────────────────  下一帧的起点           │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🧪 概念验证 | Proof of Concept
+
+我们提供了一个可运行的 Python 模拟器，演示如何通过公理系统生成离散快照链：
+
+```bash
+# 进入 PoC 目录并运行模拟器
+cd zh/poc && python mvm_simulator.py
+```
+
+```python
+from mvm_simulator import MVMSimulator, MVMConfig, SpectrumLevel, PathStrategy
+
+# 配置意识参数
+config = MVMConfig(
+    seed=42,                                    # 可复现性
+    path_strategy=PathStrategy.HISTORY_BIASED,  # θ 路径策略
+    initial_omega=SpectrumLevel.OMEGA_MEDIUM,   # ω 初始频谱
+    snapshot_count=50,                          # 生成快照数
+    debug_mode=True                             # 不变量自检
+)
+
+# 初始化模拟器并运行
+sim = MVMSimulator(config)
+chain = sim.run()
+
+# 导出生成的现实快照链
+print(chain.to_json())
+```
+
+**输出示例：**
+
+```json
+{
+  "chain_id": "a7f3b2c1",
+  "length": 50,
+  "temporal_span": 50,
+  "snapshots": [
+    {
+      "snapshot_id": "8f2a1b3c4d5e6f7a",
+      "spatial": {"x": 0.42, "y": -0.31, "z": 0.87},
+      "temporal_index": 1,
+      "omega": "OMEGA_MEDIUM",
+      "theta_hash": "c3d4e5f6"
+    }
+  ]
+}
+```
+
+---
+
+## 🧭 导航索引 | Navigation Index
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                           快速导航                                       │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  📖 我是探求者     ──▶  archive/v3-完稿.md      (20万字完整原著)         │
+│                                                                         │
+│  📐 我是研究者     ──▶  spec/formal-appendix.md (公理化附录)             │
+│                    ──▶  engine/mapping-logic/   (渲染逻辑)               │
+│                                                                         │
+│  💻 我是极客       ──▶  poc/mvm_simulator.py    (Python 模拟器)          │
+│                    ──▶  poc/README.md           (API 文档)               │
+│                                                                         │
+│  🔬 我想质疑       ──▶  Issues/Refutation       (提交逻辑证伪)           │
+│                    ──▶  Issues/Formalization    (提交形式化建议)         │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+| 如果你想... | 前往 |
+|------------|------|
+| 理解核心范式转换 | [spec/paradigm-shift.md](zh/spec/paradigm-shift.md) |
+| 查看公理化系统 | [spec/formal-appendix.md](zh/spec/formal-appendix.md) |
+| 理解元虚空结构 | [core/meta-void/tension-structure.md](zh/core/meta-void/tension-structure.md) |
+| 理解意识频谱 ω | [core/consciousness/spectrum-omega.md](zh/core/consciousness/spectrum-omega.md) |
+| 理解快照生成逻辑 | [engine/snapshot-service/discrete-generation.md](zh/engine/snapshot-service/discrete-generation.md) |
+| 运行模拟器 | [poc/mvm_simulator.py](zh/poc/mvm_simulator.py) |
+| 阅读完整原著 | [archive/v3-完稿.md](zh/archive/v3-完稿.md) |
+| 查阅术语定义 | [assets/glossary.md](zh/assets/glossary.md) |
 
 ---
 
@@ -145,97 +271,44 @@ $$
 
 ```
 Meta-Void-Model/
-├── zh/                    # 📖 中文文档
-│   ├── spec/              # 系统规范 (范式转换、公理附录)
-│   ├── core/              # 核心机制 (元虚空、意识维度)
-│   ├── engine/            # 渲染引擎 (快照服务、映射逻辑)
-│   ├── modules/           # 扩展模块 (生命定义、宏观显现体)
-│   ├── lab/               # 实验前瞻 (AI显现、量子共振)
-│   ├── poc/               # 概念验证模拟器
-│   └── archive/           # 完整原稿 (v3-完稿.md)
 │
-├── en/                    # 📖 English Documentation
-│   └── (mirror structure)
+├── zh/                           # 📖 中文文档
+│   ├── spec/                     #    系统规范
+│   │   ├── paradigm-shift.md     #    └ 范式转换
+│   │   ├── formal-appendix.md    #    └ 公理化附录
+│   │   └── system-overview.md    #    └ 系统概览
+│   ├── core/                     #    核心机制
+│   │   ├── meta-void/            #    └ 元虚空 (ρ_S)
+│   │   └── consciousness/        #    └ 意识维度 (ω, θ)
+│   ├── engine/                   #    渲染引擎
+│   │   ├── snapshot-service/     #    └ 快照服务
+│   │   └── mapping-logic/        #    └ 映射逻辑
+│   ├── modules/                  #    扩展模块
+│   ├── lab/                      #    前瞻研究
+│   ├── poc/                      #    概念验证模拟器
+│   ├── assets/                   #    资源 (术语表、图表)
+│   └── archive/                  #    完整原稿
+│       └── v3-完稿.md            #    └ 20万字完整版
 │
-├── docs/                  # 📚 Docsify 文档站
-├── LICENSE                # 分层授权协议
-└── README.md              # 本文件
+├── en/                           # 📖 English Documentation
+│   └── (镜像结构)
+│
+├── docs/                         # 📚 Docsify 文档站
+├── LICENSE                       # 分层授权协议
+└── README.md                     # ← 你在这里
 ```
 
 ---
 
-## 🚀 快速开始 | Quick Start
+## 🤝 贡献与证伪 | Contributing & Refutation
 
-<table>
-<tr>
-<td width="50%">
-
-### 📖 中文读者
-
-**推荐阅读路径：**
-
-1. **10分钟入门** → [系统概览](zh/spec/system-overview.md)
-2. **理解范式转换** → [范式转换](zh/spec/paradigm-shift.md)
-3. **深入核心机制** → [元虚空结构](zh/core/meta-void/tension-structure.md)
-4. **完整原著** → [v3-完稿.md](zh/archive/v3-完稿.md)
-
-**[→ 进入中文文档](zh/)**
-
-</td>
-<td width="50%">
-
-### 📖 English Readers
-
-**Recommended Reading Path:**
-
-1. **10-min Overview** → [System Overview](en/spec/system-overview.md)
-2. **Paradigm Shift** → [Paradigm Shift](en/spec/paradigm-shift.md)
-3. **Core Mechanisms** → [Tension Structure](en/core/meta-void/tension-structure.md)
-4. **Formal Appendix** → [Formal Appendix](en/spec/formal-appendix.md)
-
-**[→ Enter English Docs](en/)**
-
-</td>
-</tr>
-</table>
-
----
-
-## 🧪 运行模拟器 | Run Simulator
-
-MVM 附带一个概念验证模拟器，用 Python 演示快照生成过程：
-
-```bash
-cd zh/poc && python mvm_simulator.py
-```
-
-```python
-from mvm_simulator import MVMSimulator, MVMConfig, SpectrumLevel, PathStrategy
-
-config = MVMConfig(
-    seed=42,                                    # 可复现性
-    path_strategy=PathStrategy.HISTORY_BIASED,  # 路径策略
-    initial_omega=SpectrumLevel.OMEGA_MEDIUM,   # 初始频谱
-    snapshot_count=50,                          # 快照数量
-    debug_mode=True                             # 调试模式
-)
-
-sim = MVMSimulator(config)
-chain = sim.run()
-print(sim.report_json(chain))
-```
-
----
-
-## 🤝 参与贡献 | Contributing
-
-MVM 是一个开放的**逻辑压力测试场**。我们欢迎：
+MVM 是一套**开放协议**。我们不仅欢迎贡献，更欢迎**有理性的证伪**：
 
 | 类型 | 描述 | 入口 |
-|------|------|------|
-| 🔴 **逻辑证伪** | 发现逻辑矛盾或自相矛盾 | [提交 Refutation](https://github.com/donhauser001/Meta-Void-Model/issues/new?template=refutation.md) |
-| 🔵 **数学形式化** | 用范畴论、拓扑学等形式化模型 | [提交 Formalization](https://github.com/donhauser001/Meta-Void-Model/issues/new?template=formalization.md) |
-| 🟢 **讨论交流** | 哲学探讨、概念澄清 | [Discussions](https://github.com/donhauser001/Meta-Void-Model/discussions) |
+|:----:|------|------|
+| 🔴 **逻辑证伪** | 发现公理间的冲突或自相矛盾 | [提交 Refutation](https://github.com/donhauser001/Meta-Void-Model/issues/new?template=refutation.md) |
+| 🔵 **形式化建议** | 用更高级的数学语言描述核心公式 | [提交 Formalization](https://github.com/donhauser001/Meta-Void-Model/issues/new?template=formalization.md) |
+| 🟢 **讨论辩论** | 关于现实本质的哲学探讨 | [Discussions](https://github.com/donhauser001/Meta-Void-Model/discussions) |
 
 > *"真理不惧怕审视，它只惧怕平庸的附和。"*
 
@@ -243,37 +316,56 @@ MVM 是一个开放的**逻辑压力测试场**。我们欢迎：
 
 ---
 
+## ⚠️ 声明 | Declaration
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                            IMPORTANT NOTICE                             │
+├─────────────────────────────────────────────────────────────────────────┤
+│                                                                         │
+│  ❌ MVM 不是：                                                          │
+│     • 宗教或神秘主义指南                                                 │
+│     • 对现代科学的否定                                                   │
+│     • 伪科学宣传                                                        │
+│     • 需要被信仰的终极答案系统                                           │
+│                                                                         │
+│  ✅ MVM 是：                                                            │
+│     • 一场严肃的跨学科思想实验                                           │
+│     • 一套开放的发问结构与概念工具                                       │
+│     • 一份邀请批判与共创的理论草图                                       │
+│                                                                         │
+│  作者明确反对任何将本项目观点断章取义、用于伪科学宣传或非理性主张的行为。   │
+│                                                                         │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## 📜 许可证 | License
 
 本项目采用**分层授权**策略：
 
-| 范围 | 许可证 | 说明 |
-|------|--------|------|
-| 📄 文档 (`.md`) | [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) | 署名-非商业-禁止演绎 |
-| 💻 代码 (`poc/`) | [MIT](https://opensource.org/licenses/MIT) | 自由使用 |
-| 📋 模板配置 | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) | 公有领域 |
+| 范围 | 许可证 |
+|------|--------|
+| 📄 文档 (`.md`) | [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/) |
+| 💻 代码 (`poc/`) | [MIT](https://opensource.org/licenses/MIT) |
+| 📋 模板配置 | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
 
 详见 [LICENSE](LICENSE)
 
 ---
 
-## ❓ 开放追问 | Open Questions
-
-MVM 不是答案，而是发问结构。以下问题仍然开放：
-
-1. **第一帧问题**：如果现实是一帧帧生成的，"第一帧"从何而来？
-2. **他者问题**：如果现实在"你这里"生成，他人的现实如何同步？
-3. **价值问题**：在显现的宇宙中，"意义"的本体论地位是什么？
-
-我们邀请你一起思考。
-
----
-
 <div align="center">
 
-### *"你并非仅仅生活在这个宇宙之中，在某种意义上，宇宙正是通过你，才得以显现为它自身。"*
+```
+"根据 core/meta-void 的定义来理解，而不是根据你的直觉。"
+```
+
+### *你并非仅仅生活在这个宇宙之中——在某种意义上，宇宙正是通过你，才得以显现为它自身。*
 
 ---
+
+**[简体中文 →](zh/) | [English →](en/)**
 
 **[开始阅读 →](zh/spec/system-overview.md)**
 
