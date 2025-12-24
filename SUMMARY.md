@@ -74,6 +74,28 @@
 
 ---
 
+## 🧪 /poc — 概念验证模拟器
+
+- [模拟器说明](poc/README.md)
+- [mvm_simulator.py](poc/mvm_simulator.py) — Python 模拟器 (核心公式演示)
+
+```bash
+# 运行模拟
+cd poc && python mvm_simulator.py
+```
+
+---
+
+## 🛠️ 社区参与
+
+| 模板 | 用途 |
+|------|------|
+| [🔬 Refutation](../../issues/new?template=refutation.md) | 提交逻辑证伪 |
+| [📐 Formalization](../../issues/new?template=formalization.md) | 提交形式化建议 |
+| [💬 Discussion](../../issues/new?template=discussion.md) | 发起学术讨论 |
+
+---
+
 ## 📚 补充说明
 
 每个核心模块（`/core`, `/engine`, `/modules`, `/spec`）都包含 **Research & Philosophical Notes** 章节，内容包括：

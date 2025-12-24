@@ -79,19 +79,45 @@ $$
 
 ---
 
-## 04. 为什么在 GitHub 开源？
+## 04. 概念验证：可执行的宇宙观 (Proof of Concept)
+
+```bash
+# 运行 MVM 模拟器
+cd poc && python mvm_simulator.py
+```
+
+我们提供了一个 Python 模拟器来**演示核心公式的逻辑结构**：
+
+```python
+# 核心公式: S := M(ρ_S ⊗ (ω, θ, O))
+from poc.mvm_simulator import MVMSimulator
+
+sim = MVMSimulator(
+    path_strategy="history_biased",
+    initial_omega="OMEGA_MEDIUM"
+)
+chain = sim.run(snapshot_count=50)
+```
+
+> ⚠️ 这是**概念性模拟**，用于展示逻辑结构，而非物理现实的精确模型。
+
+→ [查看完整模拟器文档](poc/README.md)
+
+---
+
+## 05. 为什么在 GitHub 开源？
 
 理论不应是封闭的堡垒，而应是可进化的接口。
 
 我选择开源是为了：
 
-- 🔬 **逻辑证伪**：邀请跨学科研究者指出模型中的逻辑断裂点
-- 📐 **数学形式化**：寻找更严密的数学工具（如信息论或流形拓扑）来描述 $\theta$ 路径
+- 🔬 **逻辑证伪**：邀请跨学科研究者指出模型中的逻辑断裂点 → [提交 Refutation](../../issues/new?template=refutation.md)
+- 📐 **数学形式化**：寻找更严密的数学工具来描述 $\theta$ 路径 → [提交 Formalization](../../issues/new?template=formalization.md)
 - 🌿 **思想分支**：支持基于 MVM 原理的二次创作与应用探索
 
 ---
 
-## 05. 边界与未解问题 (Boundary & Open Questions)
+## 06. 边界与未解问题 (Boundary & Open Questions)
 
 MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 
@@ -106,7 +132,7 @@ MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 
 ---
 
-## 06. 系统导航 (System Navigation)
+## 07. 系统导航 (System Navigation)
 
 > **快速导航核心模块**
 
@@ -119,6 +145,7 @@ MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 | ⚙️ `engine/mapping-logic` | 映射引擎 | [→ formula-S](engine/mapping-logic/formula-S.md) |
 | 📦 `modules/` | 扩展模块 | [→ life-definition](modules/life-definition.md) |
 | 🔬 `lab/` | 实验与前瞻 | [→ thought-experiments](lab/verification/thought-experiments.md) |
+| 🧪 `poc/` | 概念验证模拟器 | [→ mvm_simulator.py](poc/mvm_simulator.py) |
 | 📖 **完整索引** | SUMMARY | [→ 系统导航](SUMMARY.md) |
 | 📁 **原始文稿** | 完整原著存档 | [→ archive/](archive/) |
 
@@ -126,7 +153,7 @@ MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 
 ---
 
-## 07. 仓库结构 (Repository Layout)
+## 08. 仓库结构 (Repository Layout)
 
 ```
 ├── README.md
@@ -158,6 +185,13 @@ MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 ├── lab/                                # 实验与前瞻
 │   ├── verification/
 │   └── research/
+├── poc/                                # 🧪 概念验证模拟器
+│   ├── README.md
+│   └── mvm_simulator.py
+├── archive/                            # 📁 原始文稿存档
+│   └── v3-完稿.md
+├── .github/                            # 🛠️ GitHub 配置
+│   └── ISSUE_TEMPLATE/
 └── assets/                             # 静态资产
     ├── glossary.md
     └── diagrams/
@@ -165,7 +199,7 @@ MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 
 ---
 
-## 08. 许可证 (License)
+## 09. 许可证 (License)
 
 本项目采用 **[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)** 许可协议。
 
