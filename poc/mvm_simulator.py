@@ -120,6 +120,64 @@ class SnapshotChain:
         if len(self.snapshots) < 2:
             return 0
         return self.snapshots[-1].temporal_index - self.snapshots[0].temporal_index
+    
+    def to_dict(self) -> Dict:
+        """转换为字典格式（供前端可视化）"""
+        return {
+            "chain_id": self.chain_id,
+            "length": self.length,
+            "temporal_span": self.temporal_span,
+            "snapshots": [
+                {
+                    "index": i,
+                    "snapshot_id": s.snapshot_id,
+                    "spatial": {"x": s.spatial[0], "y": s.spatial[1], "z": s.spatial[2]},
+                    "temporal_index": s.temporal_index,
+                    "omega": s.omega_level.name,
+                    "theta_hash": s.theta_path_hash,
+                    "confirmed": s.observation_confirmed,
+                    "content": s.content
+                }
+                for i, s in enumerate(self.snapshots)
+            ]
+        }
+    
+    def to_json(self, indent: int = 2) -> str:
+        """导出为 JSON 字符串"""
+        return json.dumps(self.to_dict(), indent=indent, ensure_ascii=False)
+
+
+@dataclass
+class MVMConfig:
+    """
+    MVM 模拟器配置
+    
+    用于替代字符串魔法参数，提供类型安全的配置
+    """
+    # 潜能场配置
+    field_dimensions: int = 5
+    interface_count: int = 1000
+    
+    # 意识参数配置
+    path_strategy: PathStrategy = PathStrategy.HISTORY_BIASED
+    initial_omega: SpectrumLevel = SpectrumLevel.OMEGA_MEDIUM
+    
+    # 模拟配置
+    snapshot_count: int = 50
+    max_attempts_multiplier: int = 3
+    
+    # 观察配置
+    confirmation_threshold: float = 0.5
+    
+    def to_dict(self) -> Dict:
+        return {
+            "field_dimensions": self.field_dimensions,
+            "interface_count": self.interface_count,
+            "path_strategy": self.path_strategy.value,
+            "initial_omega": self.initial_omega.name,
+            "snapshot_count": self.snapshot_count,
+            "confirmation_threshold": self.confirmation_threshold
+        }
 
 
 # =============================================================================
@@ -423,39 +481,64 @@ class ManifestationOperator:
 class MVMSimulator:
     """
     MVM 模拟器主类
+    
+    支持两种初始化方式:
+    1. MVMSimulator(config=MVMConfig(...))  # 推荐
+    2. MVMSimulator(path_strategy=..., initial_omega=...)  # 向后兼容
     """
     
     def __init__(
         self,
+        config: Optional[MVMConfig] = None,
+        # 向后兼容的参数
         field_dimensions: int = 5,
         interface_count: int = 1000,
         path_strategy: PathStrategy = PathStrategy.HISTORY_BIASED,
         initial_omega: SpectrumLevel = SpectrumLevel.OMEGA_MEDIUM
     ):
-        self.field = PotentialityField(field_dimensions, interface_count)
-        self.path = ConsciousnessPath(path_strategy, dimensions=field_dimensions)
-        self.spectrum = SpectrumOmega(initial_omega)
-        self.observer = Observation()
+        # 如果提供了 config，使用 config；否则使用单独参数
+        if config is not None:
+            self.config = config
+        else:
+            self.config = MVMConfig(
+                field_dimensions=field_dimensions,
+                interface_count=interface_count,
+                path_strategy=path_strategy,
+                initial_omega=initial_omega
+            )
+        
+        self.field = PotentialityField(
+            self.config.field_dimensions, 
+            self.config.interface_count
+        )
+        self.path = ConsciousnessPath(
+            self.config.path_strategy, 
+            dimensions=self.config.field_dimensions
+        )
+        self.spectrum = SpectrumOmega(self.config.initial_omega)
+        self.observer = Observation(self.config.confirmation_threshold)
         self.operator = ManifestationOperator(
             self.field, self.path, self.spectrum, self.observer
         )
     
-    def run(self, snapshot_count: int = 50) -> SnapshotChain:
+    def run(self, snapshot_count: Optional[int] = None) -> SnapshotChain:
         """运行模拟"""
-        return self.operator.generate_chain(snapshot_count)
+        count = snapshot_count or self.config.snapshot_count
+        return self.operator.generate_chain(count)
     
     def report(self, chain: SnapshotChain) -> Dict:
         """生成报告"""
         if not chain.snapshots:
             return {"error": "No snapshots generated"}
         
-        omega_distribution = {}
+        omega_distribution: Dict[str, int] = {}
         for s in chain.snapshots:
             level = s.omega_level.name
             omega_distribution[level] = omega_distribution.get(level, 0) + 1
         
         return {
             "chain_id": chain.chain_id,
+            "config": self.config.to_dict(),
             "total_snapshots": chain.length,
             "temporal_span": chain.temporal_span,
             "omega_distribution": omega_distribution,
@@ -464,6 +547,10 @@ class MVMSimulator:
             "success_rate": chain.length / max(1, self.observer.observation_count),
             "field_final_tension": self.field.tension_state
         }
+    
+    def report_json(self, chain: SnapshotChain, indent: int = 2) -> str:
+        """生成 JSON 格式报告"""
+        return json.dumps(self.report(chain), indent=indent, ensure_ascii=False)
 
 
 # =============================================================================
@@ -478,13 +565,15 @@ def main():
     print("=" * 60)
     print()
     
-    # 初始化模拟器
-    simulator = MVMSimulator(
+    # 方式1: 使用 MVMConfig (推荐)
+    config = MVMConfig(
         field_dimensions=5,
         interface_count=1000,
         path_strategy=PathStrategy.HISTORY_BIASED,
-        initial_omega=SpectrumLevel.OMEGA_MEDIUM
+        initial_omega=SpectrumLevel.OMEGA_MEDIUM,
+        snapshot_count=50
     )
+    simulator = MVMSimulator(config=config)
     
     print("[1] 初始化潜能场 (ρ_S)...")
     print(f"    - 维度: {simulator.field.dimensions}")
@@ -497,7 +586,7 @@ def main():
     print()
     
     print("[3] 运行显现过程...")
-    chain = simulator.run(snapshot_count=50)
+    chain = simulator.run()
     print(f"    - 生成快照数: {chain.length}")
     print()
     
@@ -505,7 +594,9 @@ def main():
     print("-" * 40)
     report = simulator.report(chain)
     for key, value in report.items():
-        if isinstance(value, float):
+        if key == "config":
+            print(f"    {key}: <MVMConfig>")
+        elif isinstance(value, float):
             print(f"    {key}: {value:.4f}")
         else:
             print(f"    {key}: {value}")
@@ -520,8 +611,17 @@ def main():
         print(f"        频谱层级: {snapshot.omega_level.name}")
         print()
     
+    # 演示 JSON 导出
+    print("[6] JSON 导出示例 (首个快照)")
+    print("-" * 40)
+    if chain.snapshots:
+        sample_json = json.dumps(chain.to_dict()["snapshots"][0], indent=2, ensure_ascii=False)
+        print(sample_json)
+    print()
+    
     print("=" * 60)
     print("  模拟完成 | Simulation Complete")
+    print("  提示: 使用 chain.to_json() 导出完整快照链")
     print("=" * 60)
 
 

@@ -9,6 +9,8 @@
 - [范式定义：从构成论到显现论](spec/paradigm-shift.md)
 - [设计原则](spec/design-principles.md)
 - [系统概览](spec/system-overview.md)
+- [📐 公理化附录 (Formal Appendix)](spec/formal-appendix.md) ⭐
+- [📜 开源宣言 (Manifesto)](spec/manifesto.md) ⭐
 - [致未来读者](spec/epilogue.md)
 
 ---

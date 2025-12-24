@@ -10,8 +10,62 @@
 
 [![License: CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 [![Release](https://img.shields.io/github/v/release/donhauser001/Meta-Void-Model?label=Release&color=03624C)](https://github.com/donhauser001/Meta-Void-Model/releases/tag/v3.0.0)
+[![English](https://img.shields.io/badge/English-README-blue)](README.en.md)
 
 </div>
+
+---
+
+## TL;DR — 10 秒入门
+
+| 问题 | 答案 |
+|------|------|
+| **MVM 是什么** | 一个把现实视为"意识对潜能场的离散渲染"的宇宙模型 |
+| **它不是什么** | 不是宗教，不是现有物理理论的替代品，而是一套"显现逻辑接口" |
+| **核心公式** | `S := M(ρ_S ⊗ (ω, θ, O))` — 快照 = 映射(潜能场 ⊗ 意识参数) |
+| **你能用它做什么** | 思辨实验、世界观设计、交互艺术、AI 模型对照、游戏宇宙构建... |
+
+---
+
+## 🧭 我是谁？应该从哪里开始？
+
+<table>
+<tr>
+<td width="33%">
+
+### 📖 阅读者 / 哲学爱好者
+
+**目标**：理解完整理论
+
+1. 从 [Release v3.0.0](https://github.com/donhauser001/Meta-Void-Model/releases/tag/v3.0.0) 下载完整原著
+2. 或阅读 [archive/v3-完稿.md](archive/)
+3. 再看 [spec/system-overview.md](spec/system-overview.md) 做结构化回顾
+
+</td>
+<td width="33%">
+
+### 📐 研究者 / 想 Formalize
+
+**目标**：形式化/证伪模型
+
+1. 从 [spec/formal-appendix.md](spec/formal-appendix.md) 看公理定义
+2. 深入 [core/](core/) 和 [engine/](engine/) 目录
+3. 用 [Formalization 模板](../../issues/new?template=formalization.md) 提交
+
+</td>
+<td width="33%">
+
+### 💻 开发者 / 做交互或仿真
+
+**目标**：运行/扩展模拟器
+
+1. 直接进入 [poc/](poc/)，运行 `mvm_simulator.py`
+2. 看 [engine/snapshot-service/](engine/snapshot-service/) 文档
+3. 参考 [poc/README.md](poc/README.md) 扩展 API
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -22,6 +76,8 @@
 **MVM (Meta-Void-Model)** 并非意图提供一套终极真理，而是一场思想实验。它试图在现代物理学的边界疑难与第一人称意识体验之间，搭建一座逻辑桥梁。
 
 本模型抛弃了传统的"实体构成论"，转而探讨一种基于**"显现机制"**的宇宙观。
+
+→ 详见 [spec/manifesto.md](spec/manifesto.md) 了解开源动机
 
 ---
 
@@ -49,10 +105,10 @@ Non-Existence = Structured Potentiality awaiting activation
 
 意识在 MVM 框架中被**公理化**为宇宙的投影维度：
 
-| 符号 | 名称 | 作用 |
-|:----:|:----:|------|
-| $\omega$ | Spectrum | 决定了显现的**质感**与**解析度** |
-| $\theta$ | Path | 决定了意识接入元虚空张力结构的**特定路径** |
+| 符号 | 名称 | 作用 | 形式化引用 |
+|:----:|:----:|------|------------|
+| $\omega$ | Spectrum | 决定了显现的**质感**与**解析度** | [Axiom C.0-C.2](spec/formal-appendix.md#意识频谱-ω) |
+| $\theta$ | Path | 决定了意识接入元虚空张力结构的**特定路径** | [Axiom C.3-C.5](spec/formal-appendix.md#意识路径-θ) |
 
 ### Snapshot (五维快照)
 
@@ -67,7 +123,7 @@ Non-Existence = Structured Potentiality awaiting activation
 本模型将现实的生成建模为一种从"潜能场"到"显现态"的映射函数：
 
 $$
-Reality(\text{Snapshot}) = f(\text{MetaVoid} \otimes \text{ConsciousnessPath}_{(\omega, \theta)})
+S := M(\rho_S \otimes (\omega, \theta, O))
 $$
 
 > **Note:** 这里的 $\otimes$ 算子代表**非线性张力卷积**，暗示现实并非简单叠加，而是意识路径对背景场的一种动态扰动。
@@ -77,6 +133,8 @@ $$
 1. **非连续性**：由于渲染频率受限，时间并非流体，而是快照间的位移感。
 2. **像素化物质**：物质质量是元虚空张力在特定 $\theta$ 路径下的"阻力表现"。
 3. **主观客观化**：所谓的客观定律，是多路径 $\theta$ 在高密度区域的统计学共识。
+
+→ 完整形式化定义见 [spec/formal-appendix.md](spec/formal-appendix.md)
 
 ---
 
@@ -91,13 +149,18 @@ cd poc && python mvm_simulator.py
 
 ```python
 # 核心公式: S := M(ρ_S ⊗ (ω, θ, O))
-from poc.mvm_simulator import MVMSimulator
+from poc.mvm_simulator import MVMSimulator, MVMConfig, SpectrumLevel, PathStrategy
 
-sim = MVMSimulator(
-    path_strategy="history_biased",
-    initial_omega="OMEGA_MEDIUM"
+config = MVMConfig(
+    path_strategy=PathStrategy.HISTORY_BIASED,
+    initial_omega=SpectrumLevel.OMEGA_MEDIUM,
+    snapshot_count=50
 )
-chain = sim.run(snapshot_count=50)
+sim = MVMSimulator(config)
+chain = sim.run()
+
+# 导出为 JSON (供前端可视化)
+print(chain.to_json())
 ```
 
 > ⚠️ 这是**概念性模拟**，用于展示逻辑结构，而非物理现实的精确模型。
@@ -116,6 +179,8 @@ chain = sim.run(snapshot_count=50)
 - 📐 **数学形式化**：寻找更严密的数学工具来描述 $\theta$ 路径 → [提交 Formalization](../../issues/new?template=formalization.md)
 - 🌿 **思想分支**：支持基于 MVM 原理的二次创作与应用探索
 
+→ 详见 [spec/manifesto.md](spec/manifesto.md)
+
 ---
 
 ## 06. 边界与未解问题 (Boundary & Open Questions)
@@ -129,7 +194,7 @@ MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 | **递归悖论** | 若意识本身也是显现，那么"观察意识"的主体是谁？ |
 | **因果倒置** | 在非时间优先的框架下，如何重新定义因果律？ |
 
-> *我欢迎通过 [Issues](../../issues) 对上述问题进行形式化攻击。*
+> *我欢迎通过 [GitHub Discussions](../../discussions) 或 [Issues](../../issues) 对上述问题进行形式化攻击。*
 
 ---
 
@@ -140,12 +205,13 @@ MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 | 模块 | 职责 | 入口 |
 |:----:|------|------|
 | 📋 `spec/` | 系统规范与设计原则 | [→ paradigm-shift](spec/paradigm-shift.md) |
+| 📐 `spec/formal-appendix` | **公理化附录** | [→ formal-appendix](spec/formal-appendix.md) |
 | 🔧 `core/meta-void` | 元虚空定义 | [→ tension-structure](core/meta-void/tension-structure.md) |
 | 🔧 `core/consciousness` | 意识维度参数 | [→ spectrum-omega](core/consciousness/spectrum-omega.md) |
 | ⚙️ `engine/snapshot-service` | 快照渲染服务 | [→ discrete-generation](engine/snapshot-service/discrete-generation.md) |
 | ⚙️ `engine/mapping-logic` | 映射引擎 | [→ formula-S](engine/mapping-logic/formula-S.md) |
 | 📦 `modules/` | 扩展模块 | [→ life-definition](modules/life-definition.md) |
-| 🔬 `lab/` | 实验与前瞻 | [→ thought-experiments](lab/verification/thought-experiments.md) |
+| 🔬 `lab/` | 实验与前瞻 | [→ ai-manifestation](lab/research/ai-manifestation.md) |
 | 🧪 `poc/` | 概念验证模拟器 | [→ mvm_simulator.py](poc/mvm_simulator.py) |
 | 📖 **完整索引** | SUMMARY | [→ 系统导航](SUMMARY.md) |
 | 📁 **原始文稿** | 完整原著存档 | [→ archive/](archive/) |
@@ -159,10 +225,13 @@ MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 
 ```
 ├── README.md
+├── README.en.md                        # 🌐 English version
 ├── CONTRIBUTING.md
 ├── SUMMARY.md                          # 系统导航索引
 ├── spec/                               # 系统规范
 │   ├── paradigm-shift.md
+│   ├── formal-appendix.md              # 📐 公理化附录 (NEW)
+│   ├── manifesto.md                    # 📜 开源宣言 (NEW)
 │   ├── design-principles.md
 │   └── system-overview.md
 ├── core/                               # 核心机制
@@ -203,13 +272,25 @@ MVM 并不声称已解决一切。以下是我主动披露的**逻辑边界**：
 
 ## 09. 许可证 (License)
 
-本项目采用 **[CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)** 许可协议。
+本项目采用**分层授权**策略：
+
+| 目录/内容 | 许可证 | 说明 |
+|-----------|--------|------|
+| `archive/`、所有 `.md` 文档 | **CC BY-NC-ND 4.0** | 保护原著完整性，禁止商业演绎 |
+| `poc/` 代码、未来可视化 Demo | **MIT** | 允许自由修改、商业使用 |
+| Issue 模板、GitHub 配置 | **CC0** | 公共领域，任意使用 |
+
+> 💡 **为什么分层？** 我们希望保护理论文本的完整性，同时鼓励开发者基于 `poc/` 代码构建世界观实现、交互艺术和游戏原型。
+
+详见各目录下的 `LICENSE` 文件。
 
 ---
 
 <div align="center">
 
 *"在这场关于显现的集体沉思中，我不提供真理，只提供一种观察真理的接口。"*
+
+**[English Version →](README.en.md)**
 
 </div>
 
