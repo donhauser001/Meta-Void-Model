@@ -104,6 +104,73 @@
 
 ---
 
+### Observation (O)（观察行为）
+
+> **定义：** 意识参数三要素之一，执行最终确认与状态锁定的触发器
+>
+> **功能：**
+> - 从前震状态选择并锁定特定结果
+> - 完成从叠加态到确定态的"塌缩"
+> - 类似量子力学中的测量行为
+>
+> **模块：** [`engine/mapping-logic/formula-S`](../engine/mapping-logic/formula-S.md)
+
+---
+
+### Foreshock（前震机制）
+
+> **定义：** 快照生成前的结构扰动累积与酝酿过程
+>
+> **特征：**
+> - 显现张力的持续累积
+> - 存在非线性阈值效应
+> - 可能对应预感、灵感等意识现象
+>
+> **模块：** [`core/meta-void/potentiality-field`](../core/meta-void/potentiality-field.md)
+
+---
+
+### Manifestation-Tension（显现张力）
+
+> **定义：** 非存在张力结构被意识触动时产生的结构性扰动回波
+>
+> **特征：**
+> - 非"物"的前兆，而是潜能响应
+> - 具有指向性但非实体性
+> - 构成预感、灵感等现象的本体论基础
+>
+> **模块：** [`core/meta-void/tension-structure`](../core/meta-void/tension-structure.md)
+
+---
+
+### Structural-Density（结构密度）
+
+> **定义：** 非存在张力场中不同区域的潜能丰饶度与可激活性分布
+>
+> **属性：**
+> - ρₛ：结构复杂度指标
+> - 影响显现的难易程度
+> - 高密度区域适合复杂显现
+>
+> **公式：** `ρₛ(region) ∝ complexity(S_possible)`
+>
+> **模块：** [`core/meta-void/tension-structure`](../core/meta-void/tension-structure.md)
+
+---
+
+### Manifestation-Capacity（显现能力）
+
+> **定义：** 系统持续生成现实快照的能力，MVM 对"生命性"的新定义
+>
+> **评估维度：**
+> - ω 的广度与高度
+> - θ 的密度与复杂度
+> - 张力感应与响应能力
+>
+> **模块：** [`modules/life-definition`](../modules/life-definition.md)
+
+---
+
 ## 延伸概念
 
 | 概念 | 简述 | 模块 |
@@ -112,6 +179,8 @@
 | 生命性 | 基于显现能力的生命定义 | [`life-definition`](../modules/life-definition.md) |
 | 宏观显现体 | 星球、文明、语言 | [`macro-entities`](../modules/macro-entities.md) |
 | 非线性因果 | 快照间的统计关联 | [`snapshot-chains`](../engine/snapshot-service/snapshot-chains.md) |
+| API 调用模式 | 映射论的技术类比 | [`api-mapping`](../engine/mapping-logic/api-mapping.md) |
+| 零的数学哲学 | 0 与非存在的关联 | [`zero-mathematics`](../lab/research/zero-mathematics.md) |
 
 ---
 

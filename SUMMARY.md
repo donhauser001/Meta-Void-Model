@@ -9,6 +9,7 @@
 - [范式定义：从构成论到显现论](spec/paradigm-shift.md)
 - [设计原则](spec/design-principles.md)
 - [系统概览](spec/system-overview.md)
+- [致未来读者](spec/epilogue.md)
 
 ---
 
@@ -54,6 +55,7 @@
 ### research/
 - [AI 显现研究](lab/research/ai-manifestation.md)
 - [量子共鸣研究](lab/research/quantum-resonance.md)
+- [零的数学哲学](lab/research/zero-mathematics.md)
 
 ---
 
